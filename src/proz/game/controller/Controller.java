@@ -1,6 +1,6 @@
 package proz.game.controller;
 
-import proz.game.model.Player;
+import proz.game.model.*;
 import proz.game.view.View;
 
 public class Controller {
@@ -40,6 +40,14 @@ public class Controller {
         player.y += VERTICAL_MOVE_DELTA;
         checkDownBorder();
         view.updateView();
+    }
+
+    public void fire() {
+        Missile m = new Missile();
+        m.x = player.x + player.getWidth()/2;
+        m.y = player.y;
+
+        player.addMissile(m);
     }
 
     private void checkLeftBorder(){
