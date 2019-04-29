@@ -3,15 +3,21 @@ package proz.game.controller;
 import proz.game.model.*;
 import proz.game.view.View;
 
+import java.util.Random;
+
 public class Controller {
+    private Board board;
     private Player player;
     private View view;
 
+    private Random rand;
     private static final int HORIZONTAL_MOVE_DELTA = 10;
     private static final int VERTICAL_MOVE_DELTA = 10;
 
-    public Controller(Player player){
-        this.player = player;
+    public Controller(Board board){
+        this.board = board;
+        this.player = board.getPlayer();
+        this.rand = new Random();
     }
 
     public void setView(View v){
@@ -48,6 +54,15 @@ public class Controller {
         m.y = player.y;
 
         player.addMissile(m);
+    }
+
+    public void spawnAsteroid(){
+        int x = rand.nextInt(view.getWidth());
+        int y = 20;
+        Asteroid a = new Asteroid();
+        a.x = x;
+        a.y = y;
+        board.addAsteroid(a);
     }
 
     private void checkLeftBorder(){

@@ -1,27 +1,22 @@
 package proz.game.view;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Random;
 import java.util.Timer;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.TimerTask;
 
 import javax.swing.*;
 
 import proz.game.controller.Controller;
-import proz.game.model.Missile;
-import proz.game.model.Player;
+import proz.game.model.*;
 
 public class SwingView extends JPanel implements View{
     //private static final long serialVersionUID = -7729510720848698723L;
 
+    private Board board;
     private Player player;
     private Controller controller;
     private Timer timer;
@@ -29,6 +24,7 @@ public class SwingView extends JPanel implements View{
     private int Y  = -100;
     private final int INITIAL_DELAY = 100;
     private final int PERIOD_INTERVAL = 25;
+    private Random rand;
     public SwingView(){
         setSize(800, 600);
         addKeyListener(createKeYListener());
@@ -36,6 +32,7 @@ public class SwingView extends JPanel implements View{
         timer = new Timer();
         timer.scheduleAtFixedRate(new ScheduleTask(),
                 INITIAL_DELAY, PERIOD_INTERVAL);
+        rand = new Random();
     }
 
     private KeyListener createKeYListener(){
@@ -78,6 +75,7 @@ public class SwingView extends JPanel implements View{
             if(Y > getHeight()){
                 Y = -100;
             }
+            controller.spawnAsteroid();
             repaint();
         }
     }
@@ -89,7 +87,6 @@ public class SwingView extends JPanel implements View{
         paintPlayer(g);
         paintAsteroid(g);
         paintMissiles(g);
-        Toolkit.getDefaultToolkit().sync();
     }
 
     private void paintPlayer(Graphics2D g){
@@ -97,8 +94,15 @@ public class SwingView extends JPanel implements View{
     }
 
     private void paintAsteroid(Graphics2D g){
-        ImageIcon ii = new ImageIcon("assets\\PNG\\Meteors\\meteorBrown_big1.png");
-        g.drawImage(ii.getImage(), X, Y, null);
+        ImageIcon ii = new ImageIcon("assets\\PNG\\Meteors\\meteorBrown_med1.png");
+
+        List<Asteroid> asteroids = board.getAsteroids();
+
+        for (Asteroid asteroid: asteroids){
+            g.drawImage(asteroid.getImage(), asteroid.x, asteroid.y, this);
+            asteroid.y += 2;
+        }
+        Toolkit.getDefaultToolkit().sync();
     }
 
     private void paintMissiles(Graphics2D g){
@@ -111,7 +115,6 @@ public class SwingView extends JPanel implements View{
             else{
                 missile.y -= 2;
             }
-
         }
     }
 
@@ -131,8 +134,9 @@ public class SwingView extends JPanel implements View{
     }
 
     @Override
-    public void setModel(Player player){
-        this.player = player;
+    public void setModel(Board board){
+        this.board = board;
+        this.player = board.getPlayer();
     }
 
     @Override

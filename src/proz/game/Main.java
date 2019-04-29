@@ -3,23 +3,23 @@ package proz.game;
 import javax.swing.JFrame;
 
 import proz.game.controller.Controller;
-import proz.game.model.Player;
+import proz.game.model.Board;
 import proz.game.view.SwingView;
 
 public class Main {
-    private static Player createModel(){
-        return new Player();
+    private static Board createModel(){
+        return new Board();
     }
 
-    private static Controller createController(Player p){
-        return new Controller(p);
+    private static Controller createController(Board b){
+        return new Controller(b);
     }
 
     private static SwingView createModelViewController(){
-        Player p = createModel();
-        Controller c = createController(p);
+        Board b = createModel();
+        Controller c = createController(b);
         SwingView v = new SwingView();
-        v.setModel(p);
+        v.setModel(b);
         v.setController(c);
         c.setView(v);
         return v;
