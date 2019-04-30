@@ -9,7 +9,7 @@ public class Player {
     public int x;
     public int y;
 
-    private List<Missile> missiles;
+    public List<Missile> missiles;
     private ImageIcon imageIcon;
     private int width;
     private int height;
@@ -21,7 +21,7 @@ public class Player {
     }
 
     public Image getImage(){
-        String imageUrl = "assets\\PNG\\playerShip1_blue.png";             //trzeba zmienić żeby można było wyswietlać różne pociski
+        String imageUrl = "assets\\PNG\\playerShip1_blue.png";
         loadImage(imageUrl);
         getDimensions();
         return imageIcon.getImage();
@@ -45,5 +45,6 @@ public class Player {
         x = startX;
         y = startY;
         missiles = new ArrayList<>();
+        getImage();
     }
 }

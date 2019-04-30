@@ -19,27 +19,16 @@ public class SwingView extends JPanel implements View{
     private Board board;
     private Player player;
     private Controller controller;
-    private Timer timer;
-    private int X =  50;
-    private int Y  = -100;
-    private final int INITIAL_DELAY = 100;
-    private final int PERIOD_INTERVAL = 25;
-    private Random rand;
     public SwingView(){
         setSize(800, 600);
         addKeyListener(createKeYListener());
         setFocusable(true);
-        timer = new Timer();
-        timer.scheduleAtFixedRate(new ScheduleTask(),
-                INITIAL_DELAY, PERIOD_INTERVAL);
-        rand = new Random();
     }
 
     private KeyListener createKeYListener(){
         return new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-
             }
 
             @Override
@@ -68,18 +57,6 @@ public class SwingView extends JPanel implements View{
         };
     }
 
-    private class ScheduleTask extends TimerTask{
-        @Override
-        public void run(){
-            Y += 2;
-            if(Y > getHeight()){
-                Y = -100;
-            }
-            controller.spawnAsteroid();
-            repaint();
-        }
-    }
-
     @Override
     protected void paintComponent(Graphics g1){
         Graphics2D g = (Graphics2D) g1;
@@ -94,27 +71,22 @@ public class SwingView extends JPanel implements View{
     }
 
     private void paintAsteroid(Graphics2D g){
-        ImageIcon ii = new ImageIcon("assets\\PNG\\Meteors\\meteorBrown_med1.png");
-
         List<Asteroid> asteroids = board.getAsteroids();
-
-        for (Asteroid asteroid: asteroids){
+        Asteroid asteroid;
+        for (int i = 0; i < asteroids.size(); i++){
+            asteroid = asteroids.get(i);
             g.drawImage(asteroid.getImage(), asteroid.x, asteroid.y, this);
-            asteroid.y += 2;
+            controller.updateAsteroid(asteroid);
         }
-        Toolkit.getDefaultToolkit().sync();
     }
 
     private void paintMissiles(Graphics2D g){
         List<Missile> missiles = player.getMissiles();
-        for (Missile missile : missiles){
+        Missile missile;
+        for (int i = 0; i < missiles.size(); i++){
+            missile = missiles.get(i);
             g.drawImage(missile.getImage(), missile.x, missile.y, this);
-            if(missile.y < -20) {
-                //missiles.remove(missile); generuje bład
-            }
-            else{
-                missile.y -= 2;
-            }
+            controller.updateMissile(missile);
         }
     }
 
