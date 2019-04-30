@@ -61,13 +61,16 @@ public class SwingView extends JPanel implements View{
     protected void paintComponent(Graphics g1){
         Graphics2D g = (Graphics2D) g1;
         fillBackground(g);
+        paintMissiles(g);
         paintPlayer(g);
         paintAsteroid(g);
-        paintMissiles(g);
+        Toolkit.getDefaultToolkit().sync();
     }
 
     private void paintPlayer(Graphics2D g){
-        g.drawImage(player.getImage(), player.x, player.y, null);
+        if(player.getVisible()) {
+            g.drawImage(player.getImage(), player.x, player.y, null);
+        }
     }
 
     private void paintAsteroid(Graphics2D g){
@@ -75,8 +78,13 @@ public class SwingView extends JPanel implements View{
         Asteroid asteroid;
         for (int i = 0; i < asteroids.size(); i++){
             asteroid = asteroids.get(i);
-            g.drawImage(asteroid.getImage(), asteroid.x, asteroid.y, this);
-            controller.updateAsteroid(asteroid);
+            if(asteroid.getVisible()){
+                g.drawImage(asteroid.getImage(), asteroid.x, asteroid.y, this);
+                controller.updateAsteroid(asteroid);
+            }
+            else {
+                controller.deleteAsteroid(asteroid);
+            }
         }
     }
 
@@ -85,8 +93,14 @@ public class SwingView extends JPanel implements View{
         Missile missile;
         for (int i = 0; i < missiles.size(); i++){
             missile = missiles.get(i);
-            g.drawImage(missile.getImage(), missile.x, missile.y, this);
-            controller.updateMissile(missile);
+            if(missile.getVisible()){
+                g.drawImage(missile.getImage(), missile.x, missile.y, this);
+                controller.updateMissile(missile);
+            }
+            else{
+                controller.deleteMissile(missile);
+            }
+
         }
     }
 

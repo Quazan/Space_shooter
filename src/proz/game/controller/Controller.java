@@ -3,6 +3,7 @@ package proz.game.controller;
 import proz.game.model.*;
 import proz.game.view.View;
 
+import java.awt.*;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,6 +55,10 @@ public class Controller {
     }
 
     public void fire() {
+        if (checkReload()){
+            return;
+        }
+
         int x = player.x + player.getWidth()/2;
         int y = player.y;
 
@@ -95,33 +100,80 @@ public class Controller {
         }
     }
 
+    private boolean checkReload(){
+        int missileCount = player.missiles.size();
+        if (missileCount > 0){
+           Missile missile = player.missiles.get(missileCount-1);
+           int lastMissilePointY = missile.y+missile.getHeight();
+           if (lastMissilePointY > player.y){
+               return true;
+           }
+        }
+        return false;
+    }
+
 
     private class ScheduleTask extends TimerTask {
         @Override
         public void run(){
             spawnAsteroid();
+            checkCollisions();
             view.updateView();
         }
     }
 
     public void updateAsteroid(Asteroid asteroid){
-        if(asteroid.y > view.getHeight() + 30){
-            board.asteroids.remove(asteroid);
+        if(asteroid.y > view.getHeight() + 30 || !asteroid.getVisible()){
+            deleteAsteroid(asteroid);
         }
-        else
-        {
+        else {
             asteroid.y += 2;
         }
     }
 
     public void updateMissile(Missile missile){
-        if(missile.y < -30) {
-            player.missiles.remove(missile);
+        if(missile.y < -30 || !missile.getVisible()) {
+            deleteMissile(missile);
         }
         else{
             missile.y -= 2;
         }
     }
+
+    private void checkCollisions(){
+        Rectangle playerBounds = player.getBounds();
+
+        for(Asteroid asteroid : board.getAsteroids()){
+            Rectangle asteroidBounds = asteroid.getBounds();
+
+            if(playerBounds.intersects(asteroidBounds)){
+                player.takeDamage(asteroid.getDamage());
+                asteroid.setVisible(false);
+            }
+        }
+
+        for(Asteroid asteroid : board.getAsteroids()){
+            Rectangle asteroidBounds = asteroid.getBounds();
+
+            for(Missile missile : player.getMissiles()){
+                Rectangle missileBounds = missile.getBounds();
+
+                if(missileBounds.intersects(asteroidBounds)){
+                    asteroid.takeDamage(missile.getDamage());
+                    missile.setVisible(false);
+                }
+            }
+        }
+    }
+
+    public void deleteAsteroid(Asteroid asteroid){
+        board.asteroids.remove(asteroid);
+    }
+
+    public void deleteMissile(Missile missile){
+        player.missiles.remove(missile);
+    }
+
 }
 
 

@@ -8,7 +8,9 @@ import java.util.List;
 public class Player {
     public int x;
     public int y;
+    private int hp = 100;
 
+    boolean visible;
     public List<Missile> missiles;
     private ImageIcon imageIcon;
     private int width;
@@ -21,7 +23,7 @@ public class Player {
     }
 
     public Image getImage(){
-        String imageUrl = "assets\\PNG\\playerShip1_blue.png";
+        String imageUrl = "assets\\PNG\\playerShip2_red.png";
         loadImage(imageUrl);
         getDimensions();
         return imageIcon.getImage();
@@ -44,7 +46,27 @@ public class Player {
     Player(int startX, int startY){
         x = startX;
         y = startY;
+        setVisible(true);
         missiles = new ArrayList<>();
         getImage();
+    }
+
+    public Rectangle getBounds(){
+        return new Rectangle(x, y, width, height);
+    }
+
+    public void takeDamage(int damage){
+        hp -= damage;
+        if(hp <= 0){
+            setVisible(false);
+        }
+    }
+
+    public void setVisible(boolean b){
+        visible = b;
+    }
+
+    public boolean getVisible(){
+        return visible;
     }
 }

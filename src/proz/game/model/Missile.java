@@ -6,10 +6,12 @@ import java.awt.*;
 public class Missile {
     public int x;
     public int y;
+    public int dmg = 200;
 
-    private ImageIcon imageIcon = new ImageIcon("assets\\PNG\\Lasers\\laserRed03.png");
-    private int width = imageIcon.getIconWidth();
-    private int height = imageIcon.getIconHeight();
+    private boolean visible;
+    private ImageIcon imageIcon;
+    private int width;
+    private int height;
 
     public int getWidth() {
         return width;
@@ -36,12 +38,23 @@ public class Missile {
     public Missile(int startX, int startY){
         this.x = startX;
         this.y = startY;
+        setVisible(true);
         getImage();
     }
 
-    public void update(){
-        if(this.y < -30){
+    public Rectangle getBounds(){
+        return new Rectangle(x, y, width, height);
+    }
 
-        }
+    public int getDamage(){
+        return this.dmg;
+    }
+
+    public void setVisible(boolean b){
+        this.visible = b;
+    }
+
+    public boolean getVisible(){
+        return visible;
     }
 }
