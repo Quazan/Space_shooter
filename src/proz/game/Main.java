@@ -9,6 +9,7 @@ import proz.game.view.SwingView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class Main {
     private static Board createModel(){
@@ -37,6 +38,7 @@ public class Main {
     }
 
     private static void createAndShowGUI(){
+        //trzeba tutaj posprzątać
         JFrame frame = new JFrame("Space shooter");
         frame.setSize(800, 600);
 
@@ -50,25 +52,35 @@ public class Main {
             if("NEW".equals(e.getActionCommand())){
                 startGame(frame);
             }
+
+            if("EXIT".equals(e.getActionCommand())){
+                System.exit(0);
+            }
         };
 
         menuItem.setActionCommand("NEW");
         menuItem.addActionListener(menuListener);
+
+        menuItem = new JMenuItem("Leaderboards");
+        menu.add(menuItem);
+
+        menuItem.setActionCommand("Scores");
+        menuItem.addActionListener(menuListener);
+
+        menuItem = new JMenuItem("Exit");
+        menu.add(menuItem);
+
+        menuItem.setActionCommand("EXIT");
+        menuItem.addActionListener(menuListener);
+
         frame.setJMenuBar(menuBar);
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        //SwingView v = createModelViewController();
-        //frame.getContentPane().add(v);
-
-        //frame.setSize(v.getSize());
 
 
         frame.setVisible(true);
-        frame.setResizable(true);
+        frame.setResizable(false);
         frame.setLocationRelativeTo(null);
 
-        //v.requestFocus();
     }
 
     public static void main(String[] args){

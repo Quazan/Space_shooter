@@ -76,7 +76,7 @@ public class Controller {
 
     private void randomAsteroid(){
         int x = rand.nextInt(view.getWidth());
-        int y = 20;
+        int y = -20;
 
         checkSpawnCollision(x, y);
     }
@@ -191,6 +191,7 @@ public class Controller {
                 if(missileBounds.intersects(asteroidBounds)){
                     asteroid.takeDamage(missile.getDamage());
                     missile.setVisible(false);
+                    player.score += 100;
                 }
             }
         }
@@ -241,7 +242,15 @@ public class Controller {
             if (keyCode == KeyEvent.VK_SPACE) {
                 fire();
             }
+            if (keyCode == KeyEvent.VK_ESCAPE){
+                stop();
+            }
         }
+    }
+
+
+    public void stop(){
+        timer.cancel();
     }
 
     public void deleteAsteroid(Asteroid asteroid){

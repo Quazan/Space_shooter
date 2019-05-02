@@ -48,11 +48,15 @@ public class SwingView extends JPanel implements View{
 
     @Override
     protected void paintComponent(Graphics g1){
+        //trzeba trochę ifowania w zależności od stanu controllera
+        //pauza
+        //game over
         Graphics2D g = (Graphics2D) g1;
         fillBackground(g);
         paintMissiles(g);
         paintPlayer(g);
         paintAsteroid(g);
+        paintScore(g);
         Toolkit.getDefaultToolkit().sync();
     }
 
@@ -60,6 +64,24 @@ public class SwingView extends JPanel implements View{
         if(player.getVisible()) {
             g.drawImage(player.getImage(), player.x, player.y, null);
         }
+        else{
+            paintGameOver(g);
+            controller.stop();
+        }
+    }
+
+    private void paintGameOver(Graphics2D g){
+        fillBackground(g);
+        ImageIcon ii = new ImageIcon("assets\\PNG\\game_over_1.png");
+        g.drawImage(ii.getImage(), 80, 0 ,null);
+        paintScore(g);
+    }
+
+
+    private void paintScore(Graphics2D g){
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+        g.setColor(Color.white);
+        g.drawString( "Score: " + player.score.toString(), 0, 20);
     }
 
     private void paintAsteroid(Graphics2D g){
@@ -102,6 +124,7 @@ public class SwingView extends JPanel implements View{
                 g.drawImage(ii.getImage(), x, y, this);
             }
     }
+
 
     @Override
     public void updateView(){

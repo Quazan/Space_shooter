@@ -8,6 +8,7 @@ import java.util.List;
 public class Player {
     public int x;
     public int y;
+    public Integer score = 0;
     private int hp = 100;
 
     boolean visible;
