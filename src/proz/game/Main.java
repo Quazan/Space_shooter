@@ -29,76 +29,46 @@ public class Main {
         return v;
     }
 
-    private static void createAndShowGUI(){
-        JFrame frame = new JFrame("Space shooter");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-/*
+    private static void startGame(JFrame frame){
+        frame.getContentPane().removeAll();
         SwingView v = createModelViewController();
         frame.getContentPane().add(v);
+        v.requestFocus();
+    }
 
-        frame.setSize(v.getSize());
+    private static void createAndShowGUI(){
+        JFrame frame = new JFrame("Space shooter");
+        frame.setSize(800, 600);
 
- */
-        showMenu(frame);
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menu = new JMenu("MENU");
+        menuBar.add(menu);
+        JMenuItem menuItem = new JMenuItem("New game");
+        menu.add(menuItem);
+
+        ActionListener menuListener = e -> {
+            if("NEW".equals(e.getActionCommand())){
+                startGame(frame);
+            }
+        };
+
+        menuItem.setActionCommand("NEW");
+        menuItem.addActionListener(menuListener);
+        frame.setJMenuBar(menuBar);
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //SwingView v = createModelViewController();
+        //frame.getContentPane().add(v);
+
+        //frame.setSize(v.getSize());
+
 
         frame.setVisible(true);
         frame.setResizable(true);
         frame.setLocationRelativeTo(null);
 
         //v.requestFocus();
-    }
-
-    private static void startGame(JFrame frame){
-        SwingView v = createModelViewController();
-        frame.getContentPane().add(v);
-
-        //frame.setSize(v.getSize());
-
-        v.requestFocus();
-    }
-
-    private static void showMenu(JFrame frame){
-        JPanel p = new JPanel();
-
-        JButton startGame = new JButton("START GAME");
-        startGame.setActionCommand("START");
-        JButton exit = new JButton("EXIT");
-        exit.setActionCommand("EXIT");
-
-        ActionListener actionListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if("START".equals(e.getActionCommand())){
-                    //frame.remove(startGame);
-                    //frame.remove(exit);
-                    frame.remove(p);
-                    startGame(frame);
-                    //startGame.setEnabled(false);
-                    //startGame.setVisible(false);
-                    //exit.setEnabled(false);
-                    //exit.setVisible(false);
-                }
-                if("EXIT".equals(e.getActionCommand())){
-                    System.exit(0);
-                }
-            }
-        };
-
-        startGame.addActionListener(actionListener);
-        exit.addActionListener(actionListener);
-
-        p.setLayout(null);
-        startGame.setBounds(200, 200, 100, 100);
-        p.add(startGame);
-        exit.setBounds(200, 400, 100, 100);
-        p.add(exit);
-
-        frame.add(p);
-
-        //frame.getContentPane().setBackground(Color.black);
-        //frame.getContentPane().add(BorderLayout.NORTH,startGame);
-        //frame.getContentPane().add(BorderLayout.SOUTH, exit);
     }
 
     public static void main(String[] args){
