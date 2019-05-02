@@ -4,6 +4,9 @@ import proz.game.model.*;
 import proz.game.view.View;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.sql.Timestamp;
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -17,6 +20,7 @@ public class Controller {
     private Random rand;
     private static final int HORIZONTAL_MOVE_DELTA = 10;
     private static final int VERTICAL_MOVE_DELTA = 10;
+    public final HashMap<Integer, Timestamp> pressedKeys;
     private final int INITIAL_DELAY = 100;
     private final int PERIOD_INTERVAL = 20;
 
@@ -28,6 +32,8 @@ public class Controller {
         timer = new Timer();
         timer.scheduleAtFixedRate(new ScheduleTask(),
                 INITIAL_DELAY, PERIOD_INTERVAL);
+
+        pressedKeys = new HashMap<>();
     }
 
     public void setView(View v){
@@ -65,12 +71,34 @@ public class Controller {
         Missile m = new Missile(x, y);
 
         player.addMissile(m);
+        randomAsteroid();
     }
 
-    private void spawnAsteroid(){
+    private void randomAsteroid(){
         int x = rand.nextInt(view.getWidth());
         int y = 20;
+
+        checkSpawnCollision(x, y);
+    }
+
+    private void checkSpawnCollision(int x, int y){
         Asteroid a = new Asteroid(x, y);
+        Rectangle asteroidBounds = a.getBounds();
+
+        for(Asteroid asteroid : board.getAsteroids()){
+            if(a == null){ break;}
+            Rectangle astr = asteroid.getBounds();
+            if(asteroidBounds.intersects(astr)){
+               a = null;
+            }
+        }
+
+        if(a != null) board.addAsteroid(a);
+    }
+
+    private void spawnAsteroid(int x, int y){
+        Asteroid a = new Asteroid(x, y);
+
         board.addAsteroid(a);
     }
 
@@ -103,11 +131,10 @@ public class Controller {
     private boolean checkReload(){
         int missileCount = player.missiles.size();
         if (missileCount > 0){
-           Missile missile = player.missiles.get(missileCount-1);
-           int lastMissilePointY = missile.y+missile.getHeight();
-           if (lastMissilePointY > player.y){
-               return true;
-           }
+            Rectangle playerBounds = player.getBounds();
+            Missile missile = player.missiles.get(missileCount-1);
+            Rectangle missileBounds = missile.getBounds();
+            return playerBounds.intersects(missileBounds);
         }
         return false;
     }
@@ -116,7 +143,10 @@ public class Controller {
     private class ScheduleTask extends TimerTask {
         @Override
         public void run(){
-            spawnAsteroid();
+            int chance = rand.nextInt(100);
+            //if(chance < 15) randomAsteroid();
+
+            keyIterator();
             checkCollisions();
             view.updateView();
         }
@@ -136,7 +166,7 @@ public class Controller {
             deleteMissile(missile);
         }
         else{
-            missile.y -= 2;
+            missile.y -= 4;
         }
     }
 
@@ -162,6 +192,54 @@ public class Controller {
                     asteroid.takeDamage(missile.getDamage());
                     missile.setVisible(false);
                 }
+            }
+        }
+    }
+
+    private void keyIterator(){
+        for(Integer keyCode : pressedKeys.keySet()){
+            if (keyCode == KeyEvent.VK_LEFT) {
+                if(pressedKeys.containsKey(KeyEvent.VK_RIGHT)) {
+                    if(pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_RIGHT))) {
+                           moveLeft();
+                    }
+                }
+                else{
+                    moveLeft();
+                }
+            }
+            if (keyCode == KeyEvent.VK_RIGHT) {
+                if(pressedKeys.containsKey(KeyEvent.VK_LEFT)) {
+                    if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_LEFT))) {
+                        moveRight();
+                    }
+                }
+                else{
+                        moveRight();
+                }
+            }
+            if (keyCode == KeyEvent.VK_UP) {
+                if(pressedKeys.containsKey(KeyEvent.VK_DOWN)) {
+                    if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_DOWN))) {
+                        moveUp();
+                    }
+                }
+                else{
+                    moveUp();
+                }
+            }
+            if (keyCode == KeyEvent.VK_DOWN) {
+                if(pressedKeys.containsKey(KeyEvent.VK_UP)) {
+                    if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_UP))) {
+                        moveDown();
+                    }
+                }
+                else{
+                    moveDown();
+                }
+            }
+            if (keyCode == KeyEvent.VK_SPACE) {
+                fire();
             }
         }
     }

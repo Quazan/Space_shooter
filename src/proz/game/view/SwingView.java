@@ -1,17 +1,17 @@
 package proz.game.view;
 
-import java.awt.*;
-import java.util.List;
-import java.util.Random;
-import java.util.Timer;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.TimerTask;
+import proz.game.controller.Controller;
+import proz.game.model.Asteroid;
+import proz.game.model.Board;
+import proz.game.model.Missile;
+import proz.game.model.Player;
 
 import javax.swing.*;
-
-import proz.game.controller.Controller;
-import proz.game.model.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.sql.Timestamp;
+import java.util.List;
 
 public class SwingView extends JPanel implements View{
     //private static final long serialVersionUID = -7729510720848698723L;
@@ -33,26 +33,15 @@ public class SwingView extends JPanel implements View{
 
             @Override
             public void keyReleased(KeyEvent e) {
-
+                Integer keyCode = e.getKeyCode();
+                controller.pressedKeys.remove(keyCode);
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-                    controller.moveLeft();
-                }
-                if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                    controller.moveRight();
-                }
-                if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    controller.moveUp();
-                }
-                if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    controller.moveDown();
-                }
-                if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-                    controller.fire();
-                }
+                Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+                Integer keyCode = e.getKeyCode();
+                controller.pressedKeys.put(keyCode, timestamp);
             }
         };
     }
