@@ -40,27 +40,27 @@ public class Controller {
         this.view = v;
     }
 
-    public void moveLeft(){
+    private void moveLeft(){
         player.x -= HORIZONTAL_MOVE_DELTA;
         checkLeftBorder();
     }
 
-    public void moveRight(){
+    private void moveRight(){
         player.x += HORIZONTAL_MOVE_DELTA;
         checkRightBorder();
     }
 
-    public void moveUp(){
+    private void moveUp(){
         player.y -= VERTICAL_MOVE_DELTA;
         checkUpperBorder();
     }
 
-    public void moveDown(){
+    private void moveDown(){
         player.y += VERTICAL_MOVE_DELTA;
         checkDownBorder();
     }
 
-    public void fire() {
+    private void fire() {
         if (checkReload()){
             return;
         }
@@ -166,7 +166,7 @@ public class Controller {
             deleteMissile(missile);
         }
         else{
-            missile.y -= 4;
+            missile.y -= 5;
         }
     }
 

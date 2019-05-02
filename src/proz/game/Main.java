@@ -1,15 +1,11 @@
 package proz.game;
 
-import javax.swing.*;
-
 import proz.game.controller.Controller;
 import proz.game.model.Board;
 import proz.game.view.SwingView;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
+import javax.swing.*;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
 public class Main {
     private static Board createModel(){
@@ -52,6 +48,9 @@ public class Main {
             if("NEW".equals(e.getActionCommand())){
                 startGame(frame);
             }
+            if("Scores".equals(e.getActionCommand())){
+                showLeaderboards();
+            }
 
             if("EXIT".equals(e.getActionCommand())){
                 System.exit(0);
@@ -81,6 +80,41 @@ public class Main {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
 
+    }
+
+    private static void showLeaderboards() {
+
+        //tymczasowo -> trzeba ogarnąć JSONA do tego
+
+        JFrame frame = new JFrame("Leaderboards");
+        Object[][] data = {
+                {"Kathy", "Smith",
+                        "Snowboarding", new Integer(5), new Boolean(false)},
+                {"John", "Doe",
+                        "Rowing", new Integer(3), new Boolean(true)},
+                {"Sue", "Black",
+                        "Knitting", new Integer(2), new Boolean(false)},
+                {"Jane", "White",
+                        "Speed reading", new Integer(20), new Boolean(true)},
+                {"Joe", "Brown",
+                        "Pool", new Integer(10), new Boolean(false)}
+        };
+
+        String[] columnNames = {"First Name",
+                "Last Name",
+                "Sport",
+                "# of Years",
+                "Vegetarian"};
+
+        JTable scoresTable = new JTable(data, columnNames);
+
+        frame.setSize(800, 600);
+
+        frame.getContentPane().add(scoresTable);
+
+        frame.setVisible(true);
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
     }
 
     public static void main(String[] args){

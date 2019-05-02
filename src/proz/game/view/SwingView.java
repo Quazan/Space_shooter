@@ -67,6 +67,7 @@ public class SwingView extends JPanel implements View{
         else{
             paintGameOver(g);
             controller.stop();
+            //String s = JOptionPane.showInputDialog(null, "What's your name?", null);
         }
     }
 
