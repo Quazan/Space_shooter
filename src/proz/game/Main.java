@@ -53,12 +53,14 @@ public class Main {
         SwingView v = createModelViewController();
         frame.getContentPane().add(v);
 
-        frame.setSize(v.getSize());
+        //frame.setSize(v.getSize());
 
         v.requestFocus();
     }
 
     private static void showMenu(JFrame frame){
+        JPanel p = new JPanel();
+
         JButton startGame = new JButton("START GAME");
         startGame.setActionCommand("START");
         JButton exit = new JButton("EXIT");
@@ -68,7 +70,14 @@ public class Main {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if("START".equals(e.getActionCommand())){
+                    //frame.remove(startGame);
+                    //frame.remove(exit);
+                    frame.remove(p);
                     startGame(frame);
+                    //startGame.setEnabled(false);
+                    //startGame.setVisible(false);
+                    //exit.setEnabled(false);
+                    //exit.setVisible(false);
                 }
                 if("EXIT".equals(e.getActionCommand())){
                     System.exit(0);
@@ -79,9 +88,17 @@ public class Main {
         startGame.addActionListener(actionListener);
         exit.addActionListener(actionListener);
 
-        frame.getContentPane().setBackground(Color.black);
-        frame.getContentPane().add(BorderLayout.NORTH,startGame);
-        frame.getContentPane().add(BorderLayout.SOUTH, exit);
+        p.setLayout(null);
+        startGame.setBounds(200, 200, 100, 100);
+        p.add(startGame);
+        exit.setBounds(200, 400, 100, 100);
+        p.add(exit);
+
+        frame.add(p);
+
+        //frame.getContentPane().setBackground(Color.black);
+        //frame.getContentPane().add(BorderLayout.NORTH,startGame);
+        //frame.getContentPane().add(BorderLayout.SOUTH, exit);
     }
 
     public static void main(String[] args){

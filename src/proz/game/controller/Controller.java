@@ -22,7 +22,7 @@ public class Controller {
     private static final int VERTICAL_MOVE_DELTA = 10;
     public final HashMap<Integer, Timestamp> pressedKeys;
     private final int INITIAL_DELAY = 100;
-    private final int PERIOD_INTERVAL = 20;
+    private final int PERIOD_INTERVAL = 25;
 
     public Controller(Board b){
         board = b;
