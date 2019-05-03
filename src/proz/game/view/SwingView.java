@@ -62,6 +62,7 @@ public class SwingView extends JPanel implements View{
         paintMissiles(g);
         paintAsteroid(g);
         paintPlayer(g);
+        paintLives(g);
         paintScore(g);
         Toolkit.getDefaultToolkit().sync();
     }
@@ -136,6 +137,18 @@ public class SwingView extends JPanel implements View{
                 controller.deleteMissile(missile);
             }
 
+        }
+    }
+
+    private void paintLives(Graphics2D g){
+        ImageIcon ii = new ImageIcon("assets\\PNG\\UI\\playerLife2_red.png");
+        Image liveImage = ii.getImage();
+        int x = ii.getIconWidth();
+        //int y = ii.getIconHeight();
+        int off = 20;
+        for(int i = 0; i < player.lives; i++){
+            g.drawImage(liveImage, off, getHeight() - 100, this);
+            off += x + 10;
         }
     }
 

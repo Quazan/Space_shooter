@@ -10,6 +10,7 @@ public class Player {
     public int y;
     public Integer score = 0;
     private int hp = 100;
+    public int lives = 3;
 
     boolean visible;
     public List<Missile> missiles;

@@ -21,7 +21,7 @@ public class GameMenu extends JPanel {
                 g.drawImage(imageBackground, x, y, this);
             }
 
-        ii = new ImageIcon("C:\\Users\\alexe\\OneDrive - Politechnika Warszawska\\Pulpit\\Space_shooter\\assets\\PNG\\logo.png");
+        ii = new ImageIcon("assets\\PNG\\logo.png");
             Image logo = ii.getImage();
             g.drawImage(logo, getWidth()/2-ii.getIconWidth()/2, 30, null);
     }

@@ -146,7 +146,12 @@ public class Controller {
             int chance = rand.nextInt(100);
             //if(chance < 15) randomAsteroid();
 
-            keyIterator();
+            try{
+                keyIterator();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             checkCollisions();
             view.updateView();
         }
