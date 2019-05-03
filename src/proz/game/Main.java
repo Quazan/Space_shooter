@@ -3,8 +3,11 @@ package proz.game;
 import proz.game.controller.Controller;
 import proz.game.model.Board;
 import proz.game.view.SwingView;
+import proz.game.model.GameMenu;
 
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main {
@@ -44,6 +47,8 @@ public class Main {
         JMenuItem menuItem = new JMenuItem("New game");
         menu.add(menuItem);
 
+        createMainMenu(frame);
+
         ActionListener menuListener = e -> {
             if("NEW".equals(e.getActionCommand())){
                 startGame(frame);
@@ -80,6 +85,50 @@ public class Main {
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
 
+    }
+
+    private static void createMainMenu(JFrame frame){
+        GameMenu mainMenu = new GameMenu();
+        mainMenu.setLayout(null);
+
+        //ImageIcon ii;
+
+        JButton newGameButton = new JButton("New game");
+        //ii = new ImageIcon("C:\\Users\\alexe\\OneDrive - Politechnika Warszawska\\Pulpit\\Space_shooter\\assets\\PNG\\UI\\buttonRed.png");
+        //newGameButton.setIcon(ii);
+        newGameButton.setActionCommand("START");
+        newGameButton.setBounds(frame.getWidth()/2-150, 200,300 , 50);
+        mainMenu.add(newGameButton);
+
+        JButton leaderboardsButton = new JButton("Leaderboards");
+        leaderboardsButton.setActionCommand("SCORES");
+        leaderboardsButton.setBounds(frame.getWidth()/2-150, 300, 300, 50);
+        mainMenu.add(leaderboardsButton);
+
+        JButton exitButton = new JButton("Exit");
+        exitButton.setActionCommand("EXIT");
+        exitButton.setBounds(frame.getWidth()/2-150, 400, 300, 50);
+        mainMenu.add(exitButton);
+
+        ActionListener mainMenuListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if("START".equals(e.getActionCommand())){
+                    startGame(frame);
+                }
+                if("SCORES".equals(e.getActionCommand())){
+                    showLeaderboards();
+                }
+                if("EXIT".equals(e.getActionCommand())){
+                    System.exit(0);
+                }
+            }
+        };
+
+        newGameButton.addActionListener(mainMenuListener);
+        leaderboardsButton.addActionListener(mainMenuListener);
+        exitButton.addActionListener(mainMenuListener);
+        frame.add(mainMenu);
     }
 
     private static void showLeaderboards() {

@@ -8,6 +8,8 @@ import proz.game.model.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.Timestamp;
@@ -19,10 +21,14 @@ public class SwingView extends JPanel implements View{
     private Board board;
     private Player player;
     private Controller controller;
+    private Image imageBackground;
+
     public SwingView(){
         setSize(800, 600);
         addKeyListener(createKeYListener());
         setFocusable(true);
+        ImageIcon iib = new ImageIcon("assets\\Backgrounds\\darkPurple.png");
+        imageBackground = iib.getImage();
     }
 
     private KeyListener createKeYListener(){
@@ -54,8 +60,8 @@ public class SwingView extends JPanel implements View{
         Graphics2D g = (Graphics2D) g1;
         fillBackground(g);
         paintMissiles(g);
-        paintPlayer(g);
         paintAsteroid(g);
+        paintPlayer(g);
         paintScore(g);
         Toolkit.getDefaultToolkit().sync();
     }
@@ -72,6 +78,23 @@ public class SwingView extends JPanel implements View{
     }
 
     private void paintGameOver(Graphics2D g){
+        /*
+        ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
+        JButton but = new JButton("Hello", ij);
+        but.setBounds(100, 100, ij.getIconWidth(), ij.getIconHeight());
+        SwingView view = this;
+        but.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.remove(but);
+                fillBackground(g);
+            }
+        });
+        this.add(but);
+        this.setVisible(true);
+
+         */
+
         fillBackground(g);
         ImageIcon ii = new ImageIcon("assets\\PNG\\game_over_1.png");
         g.drawImage(ii.getImage(), 80, 0 ,null);
@@ -117,12 +140,12 @@ public class SwingView extends JPanel implements View{
     }
 
     private void fillBackground(Graphics2D g){
-        ImageIcon ii = new ImageIcon("assets\\Backgrounds\\darkPurple.png");
-        int h = ii.getIconHeight();
-        int w = ii.getIconWidth();
+        //ImageIcon ii = new ImageIcon("assets\\Backgrounds\\darkPurple.png");
+        int h = imageBackground.getHeight(null);
+        int w = imageBackground.getWidth(null);
         for (int y = 0; y <= getHeight(); y += h)
             for (int x = 0; x <= getWidth(); x += w){
-                g.drawImage(ii.getImage(), x, y, this);
+                g.drawImage(imageBackground, x, y, this);
             }
     }
 
