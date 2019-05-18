@@ -7,11 +7,16 @@ public class Board {
 
     private Player player;
     public List<Asteroid> asteroids;
+    public List<Enemy> enemies;
+    public List<Bonus> bonuses;
+
     private void initBoard(){
         int playerSpawnY = 300;
         int playerSpawnX = 300;
         player = new Player(playerSpawnX, playerSpawnY);
         asteroids = new ArrayList<>();
+        enemies = new ArrayList<>();
+        bonuses = new ArrayList<>();
     }
 
     public Player getPlayer(){
@@ -22,6 +27,10 @@ public class Board {
         return asteroids;
     }
 
+    public List<Enemy> getEnemies() { return enemies;}
+
+    public List<Bonus> getBonuses() {return  bonuses;}
+
     public Board(){
         initBoard();
     }
@@ -29,4 +38,8 @@ public class Board {
     public void addAsteroid(Asteroid a){
         asteroids.add(a);
     }
+
+    public void addEnemy(Enemy e) { enemies.add(e);}
+
+    public void addBonus(Bonus b) {bonuses.add(b);}
 }

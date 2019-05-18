@@ -5,25 +5,30 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
-    public int x;
-    public int y;
+public class Player extends GameObject{
     public Integer score = 0;
-    private int hp = 100;
-    public int lives = 3;
 
-    boolean visible;
+    public Integer lives = 1;
+
+    public Boolean reload;
+    public Boolean shield;
+    public Boolean powerUp;
+
+    private ImageIcon shieldImage;
+
     public List<Missile> missiles;
-    private ImageIcon imageIcon;
-    private int width;
-    private int height;
-    public int getWidth() {
-        return width;
-    }
-    public int getHeight(){
-        return height;
+
+    Player(Integer startX, Integer startY){
+        super(startX, startY);
+        reload = false;
+        shield = true;
+        powerUp = false;
+        missiles = new ArrayList<>();
+
+        setShieldImage();
     }
 
+    @Override
     public Image getImage(){
         String imageUrl = "assets\\PNG\\playerShip2_red.png";
         loadImage(imageUrl);
@@ -36,39 +41,50 @@ public class Player {
         missiles.add(m);
     }
 
-    private void loadImage(String str){
-        imageIcon = new ImageIcon(str);
-    }
+    public void takeDamage(){
+        if(shield){
+            shield = false;
+        }
+        else{
+            lives--;
+        }
 
-    private void getDimensions(){
-        width = imageIcon.getIconWidth();
-        height = imageIcon.getIconHeight();
-    }
-
-    Player(int startX, int startY){
-        x = startX;
-        y = startY;
-        setVisible(true);
-        missiles = new ArrayList<>();
-        getImage();
-    }
-
-    public Rectangle getBounds(){
-        return new Rectangle(x, y, width, height);
-    }
-
-    public void takeDamage(int damage){
-        hp -= damage;
-        if(hp <= 0){
+        if(lives <= 0){
             setVisible(false);
         }
     }
 
-    public void setVisible(boolean b){
-        visible = b;
+    public void setBonus(Bonus bonus){
+        switch (bonus.getType()){
+
+            case power_UP:
+                powerUp = true;
+                break;
+
+            case shield:
+                shield = true;
+                break;
+        }
     }
 
-    public boolean getVisible(){
-        return visible;
+    public Boolean isShielded(){
+        return shield;
+    }
+
+    public Boolean isPoweredUp(){
+        return powerUp;
+    }
+
+    public Image getShieldImage(){
+        return shieldImage.getImage();
+    }
+
+    private void setShieldImage(){
+        String imageUrl = "assets\\PNG\\Effects\\shield1.png";
+        shieldImage = new ImageIcon(imageUrl);
+    }
+
+    public Rectangle getShieldBounds(){
+        return new Rectangle(x, y, shieldImage.getIconWidth(), shieldImage.getIconHeight());
     }
 }

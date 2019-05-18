@@ -2,16 +2,16 @@ package proz.game.model;
 
 import java.awt.*;
 
-public class Asteroid extends GameObject{
+public class Enemy extends GameObject{
     public Integer lives = 1;
 
-    public Asteroid(Integer startX, Integer startY){
+    public Enemy(Integer startX, Integer startY){
         super(startX, startY);
     }
 
     @Override
     public Image getImage(){
-        String imageUrl = "assets\\PNG\\Meteors\\meteorGrey_med2.png";
+        String imageUrl = "assets\\PNG\\Enemies\\enemyBlack1.png";
         loadImage(imageUrl);
         getDimensions();
         return this.imageIcon.getImage();
@@ -22,5 +22,9 @@ public class Asteroid extends GameObject{
         if(this.lives <= 0){
             setVisible(false);
         }
+    }
+
+    public boolean getVisible(){
+        return visible;
     }
 }

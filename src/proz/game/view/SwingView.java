@@ -1,22 +1,17 @@
 package proz.game.view;
 
 import proz.game.controller.Controller;
-import proz.game.model.Asteroid;
-import proz.game.model.Board;
-import proz.game.model.Missile;
-import proz.game.model.Player;
+import proz.game.model.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.Timestamp;
 import java.util.List;
 
 public class SwingView extends JPanel implements View{
-    //private static final long serialVersionUID = -7729510720848698723L;
 
     private Board board;
     private Player player;
@@ -47,6 +42,7 @@ public class SwingView extends JPanel implements View{
             public void keyPressed(KeyEvent e) {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Integer keyCode = e.getKeyCode();
+                System.out.println(keyCode);
                 controller.pressedKeys.put(keyCode, timestamp);
             }
         };
@@ -60,7 +56,9 @@ public class SwingView extends JPanel implements View{
         Graphics2D g = (Graphics2D) g1;
         fillBackground(g);
         paintMissiles(g);
+        paintBonuses(g);
         paintAsteroid(g);
+        paintEnemy(g);
         paintPlayer(g);
         paintLives(g);
         paintScore(g);
@@ -68,12 +66,15 @@ public class SwingView extends JPanel implements View{
     }
 
     private void paintPlayer(Graphics2D g){
-        if(player.getVisible()) {
+        if(player.isVisible()) {
             g.drawImage(player.getImage(), player.x, player.y, null);
+            if(player.isShielded()){
+                g.drawImage(player.getShieldImage(), player.x, player.y, null);
+            }
         }
         else{
-            paintGameOver(g);
             controller.stop();
+            paintGameOver(g);
             //String s = JOptionPane.showInputDialog(null, "What's your name?", null);
         }
     }
@@ -87,8 +88,8 @@ public class SwingView extends JPanel implements View{
         but.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                view.remove(but);
-                fillBackground(g);
+                controller.start();
+
             }
         });
         this.add(but);
@@ -114,7 +115,7 @@ public class SwingView extends JPanel implements View{
         Asteroid asteroid;
         for (int i = 0; i < asteroids.size(); i++){
             asteroid = asteroids.get(i);
-            if(asteroid.getVisible()){
+            if(asteroid.isVisible()){
                 g.drawImage(asteroid.getImage(), asteroid.x, asteroid.y, this);
                 controller.updateAsteroid(asteroid);
             }
@@ -124,19 +125,48 @@ public class SwingView extends JPanel implements View{
         }
     }
 
+    private void paintEnemy(Graphics2D g){
+        List<Enemy> enemies = board.getEnemies();
+        Enemy enemy;
+        for (int i = 0; i < enemies.size(); i++){
+            enemy = enemies.get(i);
+            if(enemy.getVisible()){
+                g.drawImage(enemy.getImage(), enemy.x, enemy.y, this);
+                controller.updateEnemy(enemy);
+            }
+            else {
+                controller.deleteEnemy(enemy);
+            }
+        }
+    }
+
     private void paintMissiles(Graphics2D g){
         List<Missile> missiles = player.getMissiles();
         Missile missile;
         for (int i = 0; i < missiles.size(); i++){
             missile = missiles.get(i);
-            if(missile.getVisible()){
+            if(missile.isVisible()){
                 g.drawImage(missile.getImage(), missile.x, missile.y, this);
                 controller.updateMissile(missile);
             }
             else{
                 controller.deleteMissile(missile);
             }
+        }
+    }
 
+    private void paintBonuses(Graphics2D g){
+        List<Bonus> bonuses = board.getBonuses();
+        Bonus bonus;
+        for (int i = 0; i < bonuses.size(); i++){
+            bonus = bonuses.get(i);
+            if(bonus.isVisible()){
+                g.drawImage(bonus.getImage(), bonus.x, bonus.y, this);
+                controller.updateBonus(bonus);
+            }
+            else{
+                controller.deleteBonus(bonus);
+            }
         }
     }
 

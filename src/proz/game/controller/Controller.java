@@ -65,35 +65,78 @@ public class Controller {
             return;
         }
 
-        int x = player.x + player.getWidth()/2;
+        int x = player.x + player.getWidth()/2 - 4;
         int y = player.y;
 
         Missile m = new Missile(x, y);
-
         player.addMissile(m);
+
+        if(player.isPoweredUp()){
+            x -= 10;
+            y += 5;
+            m = new Missile(x, y);
+            player.addMissile(m);
+
+            x += 20;
+            m = new Missile(x, y);
+            player.addMissile(m);
+        }
+
+        player.reload = true;
+        timer.schedule(new Reload(), 200);
+        randomEnemy();
         randomAsteroid();
     }
 
     private void randomAsteroid(){
         int x = rand.nextInt(view.getWidth());
         int y = -20;
-
-        checkSpawnCollision(x, y);
+        Asteroid a = new Asteroid(x, y);
+        if(checkSpawnCollision(a.getBounds())){
+            board.addAsteroid(a);
+        }
     }
 
-    private void checkSpawnCollision(int x, int y){
-        Asteroid a = new Asteroid(x, y);
-        Rectangle asteroidBounds = a.getBounds();
+    private void randomEnemy(){
+        int x = rand.nextInt(view.getWidth());
+        int y = -20;
+        Enemy e = new Enemy(x, y);
+        if(checkSpawnCollision(e.getBounds())){
+            board.addEnemy(e);
+        }
+    }
+
+    private void randomBonus(Integer x, Integer y){
+        Bonus bonus;
+        if(rand.nextInt(10) <= 4){
+            bonus = new Bonus(x, y, BonusType.shield);
+        }
+        else{
+            bonus = new Bonus(x, y, BonusType.power_UP);
+            timer.schedule(new PowerOff(), 5000);
+        }
+
+        board.addBonus(bonus);
+    }
+
+    private Boolean checkSpawnCollision(Rectangle bounds){
+        if(bounds == null){ return false;}
 
         for(Asteroid asteroid : board.getAsteroids()){
-            if(a == null){ break;}
             Rectangle astr = asteroid.getBounds();
-            if(asteroidBounds.intersects(astr)){
-               a = null;
+            if(bounds.intersects(astr)){
+               return false;
             }
         }
 
-        if(a != null) board.addAsteroid(a);
+        for(Enemy enemy : board.getEnemies()){
+            Rectangle ene = enemy.getBounds();
+            if(bounds.intersects(ene)){
+                return false;
+            }
+        }
+
+        return true;
     }
 
     private void spawnAsteroid(int x, int y){
@@ -129,16 +172,8 @@ public class Controller {
     }
 
     private boolean checkReload(){
-        int missileCount = player.missiles.size();
-        if (missileCount > 0){
-            Rectangle playerBounds = player.getBounds();
-            Missile missile = player.missiles.get(missileCount-1);
-            Rectangle missileBounds = missile.getBounds();
-            return playerBounds.intersects(missileBounds);
-        }
-        return false;
+        return player.reload;
     }
-
 
     private class ScheduleTask extends TimerTask {
         @Override
@@ -157,8 +192,20 @@ public class Controller {
         }
     }
 
+    private class Reload extends TimerTask {
+        @Override
+        public  void run(){
+            player.reload = false;
+        }
+    }
+
+    private class PowerOff extends TimerTask{
+        @Override
+        public void run() {player.powerUp = false; }
+    }
+
     public void updateAsteroid(Asteroid asteroid){
-        if(asteroid.y > view.getHeight() + 30 || !asteroid.getVisible()){
+        if(asteroid.y > view.getHeight() + 30 || !asteroid.isVisible()){
             deleteAsteroid(asteroid);
         }
         else {
@@ -166,24 +213,60 @@ public class Controller {
         }
     }
 
-    public void updateMissile(Missile missile){
-        if(missile.y < -30 || !missile.getVisible()) {
-            deleteMissile(missile);
+    public void updateEnemy(Enemy enemy){
+        if(enemy.y > view.getHeight() + 30 || !enemy.getVisible()){
+            deleteEnemy(enemy);
         }
-        else{
-            missile.y -= 5;
+        else {
+            enemy.y += 2;
         }
     }
 
+    public void updateMissile(Missile missile){
+        if(missile.y < -30 || !missile.isVisible()) {
+            deleteMissile(missile);
+        }
+        else{
+            missile.y -= 8;
+        }
+    }
+
+    public void updateBonus(Bonus bonus){
+        if(bonus.y > view.getHeight() + 30 || !bonus.isVisible()) {
+            deleteBonus(bonus);
+        }
+        else{
+            bonus.y += 4;
+        }
+    }
+
+
     private void checkCollisions(){
-        Rectangle playerBounds = player.getBounds();
+        Rectangle playerBounds;
+
+        if(player.isShielded()){
+            playerBounds = player.getShieldBounds();
+        }
+        else
+        {
+            playerBounds = player.getBounds();
+        }
 
         for(Asteroid asteroid : board.getAsteroids()){
             Rectangle asteroidBounds = asteroid.getBounds();
 
             if(playerBounds.intersects(asteroidBounds)){
-                player.takeDamage(asteroid.getDamage());
+                player.takeDamage();
                 asteroid.setVisible(false);
+            }
+        }
+
+        for(Bonus bonus : board.getBonuses()){
+            Rectangle bonusBounds = bonus.getBounds();
+
+            if(playerBounds.intersects(bonusBounds)){
+                player.setBonus(bonus);
+                bonus.setVisible(false);
             }
         }
 
@@ -194,7 +277,21 @@ public class Controller {
                 Rectangle missileBounds = missile.getBounds();
 
                 if(missileBounds.intersects(asteroidBounds)){
-                    asteroid.takeDamage(missile.getDamage());
+                    asteroid.takeDamage();
+                    missile.setVisible(false);
+                    player.score += 100;
+                }
+            }
+        }
+
+        for(Enemy enemy : board.getEnemies()){
+            Rectangle enemyBounds = enemy.getBounds();
+
+            for(Missile missile : player.getMissiles()){
+                Rectangle missileBounds = missile.getBounds();
+
+                if(missileBounds.intersects(enemyBounds)){
+                    enemy.takeDamage();
                     missile.setVisible(false);
                     player.score += 100;
                 }
@@ -221,7 +318,7 @@ public class Controller {
                     }
                 }
                 else{
-                        moveRight();
+                    moveRight();
                 }
             }
             if (keyCode == KeyEvent.VK_UP) {
@@ -247,7 +344,7 @@ public class Controller {
             if (keyCode == KeyEvent.VK_SPACE) {
                 fire();
             }
-            if (keyCode == KeyEvent.VK_ESCAPE){
+            if (keyCode == KeyEvent.VK_ESCAPE) {
                 stop();
             }
         }
@@ -258,13 +355,28 @@ public class Controller {
         timer.cancel();
     }
 
+    public void start() {
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new ScheduleTask(),
+                INITIAL_DELAY, PERIOD_INTERVAL);
+    }
+
     public void deleteAsteroid(Asteroid asteroid){
         board.asteroids.remove(asteroid);
+    }
+
+    public void deleteEnemy(Enemy enemy) {
+        if(rand.nextInt(100) < 100){
+            randomBonus(enemy.x + enemy.getWidth()/2, enemy.y + enemy.getHeight()/2);
+        }
+        board.enemies.remove(enemy);
     }
 
     public void deleteMissile(Missile missile){
         player.missiles.remove(missile);
     }
+
+    public void deleteBonus(Bonus bonus) {board.bonuses.remove(bonus);}
 
 }
 
