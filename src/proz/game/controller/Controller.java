@@ -17,17 +17,19 @@ public class Controller {
     private View view;
     private Timer timer;
     private Timer buffTimer;
+    private Boolean pause;
 
     private Random rand;
     private static final int HORIZONTAL_MOVE_DELTA = 10;
     private static final int VERTICAL_MOVE_DELTA = 10;
-    public final HashMap<Integer, Timestamp> pressedKeys;
+    public HashMap<Integer, Timestamp> pressedKeys;
     private final int INITIAL_DELAY = 100;
     private final int PERIOD_INTERVAL = 25;
 
     public Controller(Board b){
         board = b;
         player = board.getPlayer();
+        pause = false;
         rand = new Random();
 
         timer = new Timer();
@@ -395,12 +397,15 @@ public class Controller {
 
 
     public void stop(){
+        setPause(true);
         timer.cancel();
     }
 
     public void start() {
+        setPause(false);
         timer = new Timer();
-        player.reload = true;
+        player.reload = false;
+        pressedKeys = new HashMap<>();
         timer.scheduleAtFixedRate(new ScheduleTask(),
                 INITIAL_DELAY, PERIOD_INTERVAL);
     }
@@ -409,6 +414,10 @@ public class Controller {
         EnemyMissile em = new EnemyMissile(x, y);
         board.addEnemyMissile(em);
     }
+
+    public Boolean isPaused() { return pause; }
+
+    public void setPause(Boolean b) {pause = b;}
 
     public void deleteAsteroid(Asteroid asteroid){
         board.asteroids.remove(asteroid);

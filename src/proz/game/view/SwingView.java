@@ -6,6 +6,8 @@ import proz.game.model.*;
 import javax.swing.*;
 import java.awt.*;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.sql.Timestamp;
@@ -54,6 +56,7 @@ public class SwingView extends JPanel implements View{
         //game over
         Graphics2D g = (Graphics2D) g1;
         fillBackground(g);
+
         paintMissiles(g);
         paintBonuses(g);
         paintAsteroid(g);
@@ -61,6 +64,11 @@ public class SwingView extends JPanel implements View{
         paintPlayer(g);
         paintLives(g);
         paintScore(g);
+
+        if(controller.isPaused()){
+            printPauseMenu(g);
+        }
+
         Toolkit.getDefaultToolkit().sync();
     }
 
@@ -98,6 +106,22 @@ public class SwingView extends JPanel implements View{
         ImageIcon ii = new ImageIcon("assets\\PNG\\game_over_1.png");
         g.drawImage(ii.getImage(), 80, 0 ,null);
         paintScore(g);
+    }
+
+    private void printPauseMenu(Graphics2D g){
+        ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
+        JButton but = new JButton("Hello", ij);
+        but.setBounds(getHeight()/2, getWidth()/2, ij.getIconWidth()-15, ij.getIconHeight());
+        SwingView view = this;
+        but.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.remove(but);
+                controller.start();
+            }
+        });
+        this.add(but);
+        //this.setVisible(true);
     }
 
 

@@ -6,6 +6,7 @@ import java.util.List;
 public class Board {
 
     private Player player;
+
     public List<Asteroid> asteroids;
     public List<Enemy> enemies;
     public List<Bonus> bonuses;
