@@ -10,9 +10,13 @@ public class Missile extends GameObject{
 
     @Override
     public Image getImage(){
+        return this.imageIcon.getImage();
+    }
+
+    @Override
+    public void setImage(){
         String str = "assets\\PNG\\Lasers\\laserRed03.png";
         loadImage(str);
         getDimensions();
-        return this.imageIcon.getImage();
     }
 }

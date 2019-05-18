@@ -88,12 +88,10 @@ public class SwingView extends JPanel implements View{
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.start();
-
             }
         });
         this.add(but);
         this.setVisible(true);
-
          */
 
         fillBackground(g);

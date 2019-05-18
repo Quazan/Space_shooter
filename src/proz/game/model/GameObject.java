@@ -15,7 +15,7 @@ public abstract class GameObject {
         this.x = X;
         this.y = Y;
         setVisible(true);
-        getImage();
+        setImage();
     }
 
     public Rectangle getBounds(){
@@ -32,6 +32,8 @@ public abstract class GameObject {
     }
 
     protected abstract Image getImage();
+
+    protected abstract void setImage();
 
     public int getWidth() {
         return width;

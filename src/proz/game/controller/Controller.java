@@ -92,7 +92,7 @@ public class Controller {
 
     private void randomAsteroid(){
         int x = rand.nextInt(view.getWidth());
-        int y = -20;
+        int y = -60;
         Asteroid a = new Asteroid(x, y);
         if(checkSpawnCollision(a.getBounds())){
             board.addAsteroid(a);
@@ -101,7 +101,7 @@ public class Controller {
 
     private void randomEnemy(){
         int x = rand.nextInt(view.getWidth());
-        int y = -20;
+        int y = -60;
         Enemy e = new Enemy(x, y);
         if(checkSpawnCollision(e.getBounds())){
             board.addEnemy(e);
@@ -242,7 +242,7 @@ public class Controller {
             deleteEnemyMissile(enemyMissile);
         }
         else{
-            enemyMissile.y += 4;
+            enemyMissile.y += 6;
         }
     }
 
@@ -400,6 +400,7 @@ public class Controller {
 
     public void start() {
         timer = new Timer();
+        player.reload = true;
         timer.scheduleAtFixedRate(new ScheduleTask(),
                 INITIAL_DELAY, PERIOD_INTERVAL);
     }

@@ -8,13 +8,18 @@ public class Bonus extends GameObject{
     public Bonus(Integer startX, Integer startY, BonusType bt){
         super(startX, startY);
         type = bt;
-        getImage();
+        setImage();
     }
 
     @Override
     public Image getImage(){
+        return imageIcon.getImage();
+    }
+
+    @Override
+    public void setImage(){
         String imageUrl;
-        if(type == null) return null;
+        if(type == null) return;
 
         switch (type){
             case shield:
@@ -31,8 +36,9 @@ public class Bonus extends GameObject{
 
         loadImage(imageUrl);
         getDimensions();
-        return imageIcon.getImage();
     }
+
+
 
     public BonusType getType() {return type;}
 }

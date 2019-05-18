@@ -11,10 +11,14 @@ public class Enemy extends GameObject{
 
     @Override
     public Image getImage(){
-        String imageUrl = "assets\\PNG\\Enemies\\enemyBlack1.png";
+        return this.imageIcon.getImage();
+    }
+
+    @Override
+    protected void setImage(){
+        String imageUrl = "assets\\PNG\\Enemies\\enemyBlue1.png";
         loadImage(imageUrl);
         getDimensions();
-        return this.imageIcon.getImage();
     }
 
     public void takeDamage(){

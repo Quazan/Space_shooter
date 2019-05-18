@@ -30,11 +30,16 @@ public class Player extends GameObject{
 
     @Override
     public Image getImage(){
+        return imageIcon.getImage();
+    }
+
+    @Override
+    protected void setImage(){
         String imageUrl = "assets\\PNG\\playerShip2_red.png";
         loadImage(imageUrl);
         getDimensions();
-        return imageIcon.getImage();
     }
+
     public List<Missile> getMissiles() {return missiles;}
 
     public void addMissile(Missile m){
