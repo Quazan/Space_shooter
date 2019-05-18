@@ -68,7 +68,7 @@ public class SwingView extends JPanel implements View{
         if(player.isVisible()) {
             g.drawImage(player.getImage(), player.x, player.y, null);
             if(player.isShielded()){
-                g.drawImage(player.getShieldImage(), player.x, player.y, null);
+                g.drawImage(player.getShieldImage(), player.x - 10, player.y - 15, null);
             }
         }
         else{
@@ -141,6 +141,8 @@ public class SwingView extends JPanel implements View{
 
     private void paintMissiles(Graphics2D g){
         List<Missile> missiles = player.getMissiles();
+        List<EnemyMissile> enemyMissiles = board.getEnemyMissiles();
+
         Missile missile;
         for (int i = 0; i < missiles.size(); i++){
             missile = missiles.get(i);
@@ -150,6 +152,18 @@ public class SwingView extends JPanel implements View{
             }
             else{
                 controller.deleteMissile(missile);
+            }
+        }
+
+        EnemyMissile enemyMissile;
+        for (int i = 0; i < enemyMissiles.size(); i++){
+            enemyMissile = enemyMissiles.get(i);
+            if(enemyMissile.isVisible()){
+                g.drawImage(enemyMissile.getImage(), enemyMissile.x, enemyMissile.y, this);
+                controller.updateEnemyMissile(enemyMissile);
+            }
+            else{
+                controller.deleteEnemyMissile(enemyMissile);
             }
         }
     }

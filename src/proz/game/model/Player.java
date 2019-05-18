@@ -8,7 +8,7 @@ import java.util.List;
 public class Player extends GameObject{
     public Integer score = 0;
 
-    public Integer lives = 1;
+    public Integer lives = 3;
 
     public Boolean reload;
     public Boolean shield;
@@ -21,7 +21,7 @@ public class Player extends GameObject{
     Player(Integer startX, Integer startY){
         super(startX, startY);
         reload = false;
-        shield = false;
+        shield = true;
         powerUp = false;
         missiles = new ArrayList<>();
 

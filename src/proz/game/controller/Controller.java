@@ -86,7 +86,7 @@ public class Controller {
 
         player.reload = true;
         timer.schedule(new Reload(), 200);
-        randomEnemy();
+        //randomEnemy();
         //randomAsteroid();
     }
 
@@ -180,7 +180,8 @@ public class Controller {
         @Override
         public void run(){
             int chance = rand.nextInt(100);
-            //if(chance < 15) randomAsteroid();
+            if(chance < 5) randomAsteroid();
+            if(chance > 95) randomEnemy();
 
             try{
                 keyIterator();
@@ -220,6 +221,9 @@ public class Controller {
             deleteEnemy(enemy);
         }
         else {
+            if(rand.nextInt(2500) < 10){
+                enemyShot(enemy.x + enemy.getWidth()/2 - 5, enemy.y + enemy.getHeight()/2);
+            }
             enemy.y += 2;
         }
     }
@@ -230,6 +234,15 @@ public class Controller {
         }
         else{
             missile.y -= 8;
+        }
+    }
+
+    public void updateEnemyMissile(EnemyMissile enemyMissile){
+        if(enemyMissile.y < -30 || !enemyMissile.isVisible()) {
+            deleteEnemyMissile(enemyMissile);
+        }
+        else{
+            enemyMissile.y += 4;
         }
     }
 
@@ -272,6 +285,15 @@ public class Controller {
             }
         }
 
+        for(EnemyMissile em : board.getEnemyMissiles()){
+            Rectangle missileBounds = em.getBounds();
+
+            if(playerBounds.intersects(missileBounds)){
+                player.takeDamage();
+                em.setVisible(false);
+            }
+        }
+
         for(Asteroid asteroid : board.getAsteroids()){
             Rectangle asteroidBounds = asteroid.getBounds();
 
@@ -287,6 +309,15 @@ public class Controller {
                     asteroid.takeDamage();
                     missile.setVisible(false);
                     player.score += 100;
+                }
+            }
+
+            for(EnemyMissile em : board.getEnemyMissiles()){
+                Rectangle missileBounds = em.getBounds();
+
+                if(missileBounds.intersects(asteroidBounds)){
+                    asteroid.takeDamage();
+                    em.setVisible(false);
                 }
             }
         }
@@ -373,6 +404,11 @@ public class Controller {
                 INITIAL_DELAY, PERIOD_INTERVAL);
     }
 
+    private void enemyShot(Integer x, Integer y){
+        EnemyMissile em = new EnemyMissile(x, y);
+        board.addEnemyMissile(em);
+    }
+
     public void deleteAsteroid(Asteroid asteroid){
         board.asteroids.remove(asteroid);
     }
@@ -389,6 +425,8 @@ public class Controller {
     }
 
     public void deleteBonus(Bonus bonus) {board.bonuses.remove(bonus);}
+
+    public void deleteEnemyMissile(EnemyMissile em){board.enemyMissiles.remove(em);}
 
 }
 
