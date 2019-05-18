@@ -42,7 +42,6 @@ public class SwingView extends JPanel implements View{
             public void keyPressed(KeyEvent e) {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Integer keyCode = e.getKeyCode();
-                System.out.println(keyCode);
                 controller.pressedKeys.put(keyCode, timestamp);
             }
         };

@@ -16,6 +16,7 @@ public class Controller {
     private Player player;
     private View view;
     private Timer timer;
+    private Timer buffTimer;
 
     private Random rand;
     private static final int HORIZONTAL_MOVE_DELTA = 10;
@@ -30,6 +31,7 @@ public class Controller {
         rand = new Random();
 
         timer = new Timer();
+        buffTimer = new Timer();
         timer.scheduleAtFixedRate(new ScheduleTask(),
                 INITIAL_DELAY, PERIOD_INTERVAL);
 
@@ -72,12 +74,12 @@ public class Controller {
         player.addMissile(m);
 
         if(player.isPoweredUp()){
-            x -= 10;
-            y += 5;
+            x -= 30;
+            y += 15;
             m = new Missile(x, y);
             player.addMissile(m);
 
-            x += 20;
+            x += 60;
             m = new Missile(x, y);
             player.addMissile(m);
         }
@@ -85,7 +87,7 @@ public class Controller {
         player.reload = true;
         timer.schedule(new Reload(), 200);
         randomEnemy();
-        randomAsteroid();
+        //randomAsteroid();
     }
 
     private void randomAsteroid(){
@@ -113,7 +115,6 @@ public class Controller {
         }
         else{
             bonus = new Bonus(x, y, BonusType.power_UP);
-            timer.schedule(new PowerOff(), 5000);
         }
 
         board.addBonus(bonus);
@@ -201,7 +202,8 @@ public class Controller {
 
     private class PowerOff extends TimerTask{
         @Override
-        public void run() {player.powerUp = false; }
+        public void run() {player.powerUp = false;
+        System.out.println("off");}
     }
 
     public void updateAsteroid(Asteroid asteroid){
@@ -252,19 +254,19 @@ public class Controller {
             playerBounds = player.getBounds();
         }
 
-        for(Asteroid asteroid : board.getAsteroids()){
-            Rectangle asteroidBounds = asteroid.getBounds();
-
-            if(playerBounds.intersects(asteroidBounds)){
-                player.takeDamage();
-                asteroid.setVisible(false);
-            }
-        }
 
         for(Bonus bonus : board.getBonuses()){
             Rectangle bonusBounds = bonus.getBounds();
 
             if(playerBounds.intersects(bonusBounds)){
+                if(bonus.getType().equals(BonusType.power_UP)){
+                    if(player.isPoweredUp()){
+                        buffTimer.cancel();
+                        buffTimer = new Timer();
+                    }
+
+                    buffTimer.schedule(new PowerOff(), 5000);
+                }
                 player.setBonus(bonus);
                 bonus.setVisible(false);
             }
@@ -272,6 +274,11 @@ public class Controller {
 
         for(Asteroid asteroid : board.getAsteroids()){
             Rectangle asteroidBounds = asteroid.getBounds();
+
+            if(playerBounds.intersects(asteroidBounds)){
+                player.takeDamage();
+                asteroid.setVisible(false);
+            }
 
             for(Missile missile : player.getMissiles()){
                 Rectangle missileBounds = missile.getBounds();
@@ -286,6 +293,11 @@ public class Controller {
 
         for(Enemy enemy : board.getEnemies()){
             Rectangle enemyBounds = enemy.getBounds();
+
+            if(playerBounds.intersects(enemyBounds)){
+                player.takeDamage();
+                enemy.setVisible(false);
+            }
 
             for(Missile missile : player.getMissiles()){
                 Rectangle missileBounds = missile.getBounds();
@@ -366,7 +378,7 @@ public class Controller {
     }
 
     public void deleteEnemy(Enemy enemy) {
-        if(rand.nextInt(100) < 100){
+        if(rand.nextInt(100) < 10){
             randomBonus(enemy.x + enemy.getWidth()/2, enemy.y + enemy.getHeight()/2);
         }
         board.enemies.remove(enemy);
