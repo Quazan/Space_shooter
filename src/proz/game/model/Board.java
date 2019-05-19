@@ -17,7 +17,7 @@ public class Board {
     }
 
     private void initBoard(){
-        int playerSpawnY = 300;
+        int playerSpawnY = 450;
         int playerSpawnX = 300;
         player = new Player(playerSpawnX, playerSpawnY);
         asteroids = new ArrayList<>();

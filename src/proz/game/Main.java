@@ -6,6 +6,7 @@ import proz.game.model.GameMenu;
 import proz.game.view.SwingView;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -32,14 +33,21 @@ public class Main {
         frame.getContentPane().removeAll();
         SwingView v = createModelViewController();
         frame.getContentPane().add(v);
+        frame.pack();
         v.requestFocus();
     }
 
     private static void createAndShowGUI(){
         //trzeba tutaj posprzątać
-        JFrame frame = new JFrame("Space shooter");
-        frame.setSize(800, 600);
+        JFrame frame = new JFrame("Space shooter"){
+            @Override
+            public Dimension getPreferredSize(){
+                return new Dimension(800, 600);
+            }
+        };
 
+        frame.setPreferredSize(new Dimension(800, 600));
+        frame.pack();
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("MENU");
         menuBar.add(menu);
@@ -71,7 +79,7 @@ public class Main {
 
 
         frame.setVisible(true);
-        frame.setResizable(false);
+        frame.setResizable(true);
         frame.setLocationRelativeTo(null);
     }
 

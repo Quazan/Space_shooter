@@ -101,8 +101,8 @@ public class SwingView extends JPanel implements View{
     private void paintGameOver(Graphics2D g){
 
         ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
-        JButton button = new JButton("Hello");
-        button.setBounds(100, 100, ij.getIconWidth(), ij.getIconHeight());
+        JButton button = new JButton("Play again");
+        button.setBounds(getHeight()/2, getWidth()/2, ij.getIconWidth(), ij.getIconHeight());
         SwingView view = this;
         button.addActionListener(new ActionListener() {
             @Override
@@ -127,7 +127,7 @@ public class SwingView extends JPanel implements View{
 
     private void printPauseMenu(Graphics2D g){
         ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
-        JButton but = new JButton("Hello");
+        JButton but = new JButton("Continue");
         but.setBounds(getHeight()/2, getWidth()/2, ij.getIconWidth()-15, ij.getIconHeight());
         SwingView view = this;
         but.addActionListener(new ActionListener() {
@@ -227,21 +227,21 @@ public class SwingView extends JPanel implements View{
         int x = ii.getIconWidth();
         int off = 20;
         for(int i = 0; i < player.lives; i++){
-            g.drawImage(imageHUD, off, getHeight() - 100, this);
+            g.drawImage(imageHUD, off, getHeight() - 50, this);
             off += x + 10;
         }
 
         if(player.isShielded()){
             ii = new ImageIcon("assets\\PNG\\Power-ups\\shield_silver.png");
             imageHUD = ii.getImage();
-            g.drawImage(imageHUD, off, getHeight()-100, this);
+            g.drawImage(imageHUD, off, getHeight() - 50, this);
             off += ii.getIconWidth() + 10;
         }
 
         if(player.isPoweredUp()){
             ii = new ImageIcon("assets\\PNG\\Power-ups\\bold_silver.png");
             imageHUD = ii.getImage();
-            g.drawImage(imageHUD, off, getHeight()-100, this);
+            g.drawImage(imageHUD, off, getHeight() - 50, this);
         }
 
     }

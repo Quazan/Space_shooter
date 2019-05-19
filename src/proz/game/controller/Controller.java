@@ -197,9 +197,8 @@ public class Controller {
                 Rectangle missileBounds = missile.getBounds();
 
                 if(missileBounds.intersects(asteroidBounds)){
-                    System.out.println(asteroid.lives);
                     asteroid.takeDamage();
-                    System.out.println(asteroid.lives);
+                    addScore();
                     missile.setVisible(false);
                 }
             }
@@ -227,6 +226,7 @@ public class Controller {
 
                 if(missileBounds.intersects(enemyBounds)){
                     enemy.takeDamage();
+                    addScore();
                     missile.setVisible(false);
                 }
             }
@@ -267,8 +267,8 @@ public class Controller {
         @Override
         public void run(){
             int chance = generateNumber(100);
-            if(chance < 5) randomAsteroid();
-            if(chance > 95) randomEnemy();
+            //if(chance < 5) randomAsteroid();
+            //if(chance > 95) randomEnemy();
 
             try{
                 keyIterator();
@@ -344,6 +344,7 @@ public class Controller {
     }
 
     private void keyIterator(){
+        System.out.println(pressedKeys);
         for(Integer keyCode : pressedKeys.keySet()){
             if (keyCode == KeyEvent.VK_LEFT) {
                 if(pressedKeys.containsKey(KeyEvent.VK_RIGHT)) {
@@ -434,7 +435,6 @@ public class Controller {
     }
 
     public void deleteAsteroid(Asteroid asteroid){
-        addScore();
         board.asteroids.remove(asteroid);
     }
 
@@ -445,7 +445,6 @@ public class Controller {
 
             randomBonus(startBonusX, startBonusY);
         }
-        addScore();
         board.enemies.remove(enemy);
     }
 
