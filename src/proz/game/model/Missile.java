@@ -10,7 +10,7 @@ public class Missile extends GameObject{
 
     @Override
     public Image getImage(){
-        return this.imageIcon.getImage();
+        return imageIcon.getImage();
     }
 
     @Override

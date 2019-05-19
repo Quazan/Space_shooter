@@ -37,14 +37,14 @@ public class SwingView extends JPanel implements View{
             @Override
             public void keyReleased(KeyEvent e) {
                 Integer keyCode = e.getKeyCode();
-                controller.pressedKeys.remove(keyCode);
+                controller.removeKey(keyCode);
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
                 Timestamp timestamp = new Timestamp(System.currentTimeMillis());
                 Integer keyCode = e.getKeyCode();
-                controller.pressedKeys.put(keyCode, timestamp);
+                controller.addKey(keyCode, timestamp);
             }
         };
     }
@@ -90,27 +90,23 @@ public class SwingView extends JPanel implements View{
                     break;
                 default:
                     break;
-
             }
         }
         else{
             controller.stop();
             paintGameOver(g);
-            //String s = JOptionPane.showInputDialog(null, "What's your name?", null);
         }
     }
 
     private void paintGameOver(Graphics2D g){
 
         ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
-        JButton button = new JButton("Hello", ij);
+        JButton button = new JButton("Hello");
         button.setBounds(100, 100, ij.getIconWidth(), ij.getIconHeight());
         SwingView view = this;
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //controller.start();
-                System.out.println("hi");
                 view.remove(button);
                 Board b = new Board();
                 Controller c = new Controller(b);
@@ -131,7 +127,7 @@ public class SwingView extends JPanel implements View{
 
     private void printPauseMenu(Graphics2D g){
         ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
-        JButton but = new JButton("Hello", ij);
+        JButton but = new JButton("Hello");
         but.setBounds(getHeight()/2, getWidth()/2, ij.getIconWidth()-15, ij.getIconHeight());
         SwingView view = this;
         but.addActionListener(new ActionListener() {
@@ -143,7 +139,6 @@ public class SwingView extends JPanel implements View{
             }
         });
         this.add(but);
-        //this.setVisible(true);
     }
 
     private void paintScore(Graphics2D g){
@@ -230,7 +225,6 @@ public class SwingView extends JPanel implements View{
         ImageIcon ii = new ImageIcon("assets\\PNG\\UI\\playerLife2_red.png");
         Image imageHUD = ii.getImage();
         int x = ii.getIconWidth();
-        //int y = ii.getIconHeight();
         int off = 20;
         for(int i = 0; i < player.lives; i++){
             g.drawImage(imageHUD, off, getHeight() - 100, this);
@@ -253,7 +247,6 @@ public class SwingView extends JPanel implements View{
     }
 
     private void fillBackground(Graphics2D g){
-        //ImageIcon ii = new ImageIcon("assets\\Backgrounds\\darkPurple.png");
         int h = imageBackground.getHeight(null);
         int w = imageBackground.getWidth(null);
         for (int y = 0; y <= getHeight(); y += h)

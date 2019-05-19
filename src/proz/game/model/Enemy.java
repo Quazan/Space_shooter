@@ -11,7 +11,7 @@ public class Enemy extends GameObject{
 
     @Override
     public Image getImage(){
-        return this.imageIcon.getImage();
+        return imageIcon.getImage();
     }
 
     @Override
@@ -22,8 +22,8 @@ public class Enemy extends GameObject{
     }
 
     public void takeDamage(){
-        this.lives--;
-        if(this.lives <= 0){
+        lives--;
+        if(lives <= 0){
             setVisible(false);
         }
     }

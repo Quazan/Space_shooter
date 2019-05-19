@@ -7,12 +7,11 @@ import java.util.List;
 
 public class Player extends GameObject{
     public Integer score = 0;
-
     public Integer lives = 3;
 
-    public Boolean reload;
+    private Boolean reload;
     private Boolean shield;
-    public Boolean powerUp;
+    private Boolean powerUp;
 
     private ImageIcon shieldImage;
 
@@ -21,7 +20,7 @@ public class Player extends GameObject{
     Player(Integer startX, Integer startY){
         super(startX, startY);
         reload = false;
-        shield = false;
+        shield = true;
         powerUp = false;
         missiles = new ArrayList<>();
 
@@ -72,9 +71,15 @@ public class Player extends GameObject{
         }
     }
 
+    public void setReload(Boolean b) {reload = b;}
+
+    public Boolean isReloading() {return reload;}
+
     public Boolean isShielded(){
         return shield;
     }
+
+    public void setPowerUp(Boolean b) {powerUp = b;}
 
     public Boolean isPoweredUp(){
         return powerUp;

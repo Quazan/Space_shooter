@@ -25,6 +25,15 @@ public class Controller {
     public HashMap<Integer, Timestamp> pressedKeys;
     private final int INITIAL_DELAY = 100;
     private final int PERIOD_INTERVAL = 25;
+    private final int RELOAD_TIME = 200;
+    private final int ENEMY_MOVE_DELTA = 2;
+    private final int ASTEROID_MOVE_DELTA = 2;
+    private final int PLAYER_MISSILE_MOVE_DELTA = 8;
+    private final int ENEMY_MISSILE_MOVE_DELTA = 6;
+    private final int BONUS_MOVE_DELTA = 4;
+    private final int START_Y_FOR_OBJECTS = -60;
+    private final int LAST_Y = 30;
+    private final int SCORE_DELTA = 100;
 
     public Controller(Board b){
         board = b;
@@ -38,10 +47,6 @@ public class Controller {
                 INITIAL_DELAY, PERIOD_INTERVAL);
 
         pressedKeys = new HashMap<>();
-    }
-
-    public void setView(View v){
-        this.view = v;
     }
 
     private void moveLeft(){
@@ -65,6 +70,7 @@ public class Controller {
     }
 
     private void fire() {
+
         if (checkReload()){
             return;
         }
@@ -86,33 +92,32 @@ public class Controller {
             player.addMissile(m);
         }
 
-        player.reload = true;
-        timer.schedule(new Reload(), 200);
-        //randomEnemy();
-        //randomAsteroid();
+        player.setReload(true);
+        timer.schedule(new Reload(), RELOAD_TIME);
     }
 
     private void randomAsteroid(){
-        int x = rand.nextInt(view.getWidth());
-        int y = -60;
-        Asteroid a = new Asteroid(x, y);
+        int x = generateNumber(view.getWidth() - 125);
+        x += 30;
+        Asteroid a = new Asteroid(x, START_Y_FOR_OBJECTS);
+
         if(checkSpawnCollision(a.getBounds())){
             board.addAsteroid(a);
         }
     }
 
     private void randomEnemy(){
-        int x = rand.nextInt(view.getWidth());
-        int y = -60;
-        Enemy e = new Enemy(x, y);
-        if(checkSpawnCollision(e.getBounds())){
-            board.addEnemy(e);
+        int x = generateNumber(view.getWidth() - 125);
+        x += 30;
+        Enemy enemy = new Enemy(x, START_Y_FOR_OBJECTS);
+        if(checkSpawnCollision(enemy.getBounds())){
+            board.addEnemy(enemy);
         }
     }
 
     private void randomBonus(Integer x, Integer y){
         Bonus bonus;
-        if(rand.nextInt(10) <= 4){
+        if(generateNumber(10) <= 4){
             bonus = new Bonus(x, y, BonusType.shield);
         }
         else{
@@ -126,131 +131,21 @@ public class Controller {
         if(bounds == null){ return false;}
 
         for(Asteroid asteroid : board.getAsteroids()){
-            Rectangle astr = asteroid.getBounds();
-            if(bounds.intersects(astr)){
+            Rectangle asteroidBounds = asteroid.getBounds();
+            if(bounds.intersects(asteroidBounds)){
                return false;
             }
         }
 
         for(Enemy enemy : board.getEnemies()){
-            Rectangle ene = enemy.getBounds();
-            if(bounds.intersects(ene)){
+            Rectangle enemyBounds = enemy.getBounds();
+            if(bounds.intersects(enemyBounds)){
                 return false;
             }
         }
 
         return true;
     }
-
-    private void checkLeftBorder(){
-        if(player.x < 0){
-            player.x = 0;
-        }
-    }
-
-    private void checkRightBorder(){
-        final int lastPossibleX = view.getWidth() - player.getWidth();
-        if(player.x >= lastPossibleX){
-            player.x = lastPossibleX;
-        }
-    }
-
-    private void checkUpperBorder(){
-        if(player.y < 0){
-            player.y = 0;
-        }
-    }
-
-    private void checkDownBorder(){
-        final int lastPossibleY = view.getHeight() - player.getHeight();
-        if(player.y >= lastPossibleY){
-            player.y = lastPossibleY;
-        }
-    }
-
-    private boolean checkReload(){
-        return player.reload;
-    }
-
-    private class ScheduleTask extends TimerTask {
-        @Override
-        public void run(){
-            int chance = rand.nextInt(100);
-            if(chance < 5) randomAsteroid();
-            if(chance > 95) randomEnemy();
-
-            try{
-                keyIterator();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            checkCollisions();
-            view.updateView();
-        }
-    }
-
-    private class Reload extends TimerTask {
-        @Override
-        public  void run(){
-            player.reload = false;
-        }
-    }
-
-    private class PowerOff extends TimerTask{
-        @Override
-        public void run() {player.powerUp = false;
-        System.out.println("off");}
-    }
-
-    public void updateAsteroid(Asteroid asteroid){
-        if(asteroid.y > view.getHeight() + 30 || !asteroid.isVisible()){
-            deleteAsteroid(asteroid);
-        }
-        else {
-            asteroid.y += 2;
-        }
-    }
-
-    public void updateEnemy(Enemy enemy){
-        if(enemy.y > view.getHeight() + 30 || !enemy.getVisible()){
-            deleteEnemy(enemy);
-        }
-        else {
-            if(rand.nextInt(2500) < 10){
-                enemyShot(enemy.x + enemy.getWidth()/2 - 5, enemy.y + enemy.getHeight()/2);
-            }
-            enemy.y += 2;
-        }
-    }
-
-    public void updateMissile(Missile missile){
-        if(missile.y < -30 || !missile.isVisible()) {
-            deleteMissile(missile);
-        }
-        else{
-            missile.y -= 8;
-        }
-    }
-
-    public void updateEnemyMissile(EnemyMissile enemyMissile){
-        if(enemyMissile.y < -30 || !enemyMissile.isVisible()) {
-            deleteEnemyMissile(enemyMissile);
-        }
-        else{
-            enemyMissile.y += 6;
-        }
-    }
-
-    public void updateBonus(Bonus bonus){
-        if(bonus.y > view.getHeight() + 30 || !bonus.isVisible()) {
-            deleteBonus(bonus);
-        }
-        else{
-            bonus.y += 4;
-        }
-    }
-
 
     private void checkCollisions(){
         Rectangle playerBounds;
@@ -306,7 +201,6 @@ public class Controller {
                     asteroid.takeDamage();
                     System.out.println(asteroid.lives);
                     missile.setVisible(false);
-                    player.score += 100;
                 }
             }
 
@@ -334,9 +228,118 @@ public class Controller {
                 if(missileBounds.intersects(enemyBounds)){
                     enemy.takeDamage();
                     missile.setVisible(false);
-                    player.score += 100;
                 }
             }
+        }
+    }
+
+    private boolean checkReload(){
+        return player.isReloading();
+    }
+
+    private void checkLeftBorder(){
+        if(player.x < 0){
+            player.x = 0;
+        }
+    }
+
+    private void checkRightBorder(){
+        final int lastPossibleX = view.getWidth() - player.getWidth();
+        if(player.x >= lastPossibleX){
+            player.x = lastPossibleX;
+        }
+    }
+
+    private void checkUpperBorder(){
+        if(player.y < 0){
+            player.y = 0;
+        }
+    }
+
+    private void checkDownBorder(){
+        final int lastPossibleY = view.getHeight() - player.getHeight();
+        if(player.y >= lastPossibleY){
+            player.y = lastPossibleY;
+        }
+    }
+
+    private class ScheduleTask extends TimerTask {
+        @Override
+        public void run(){
+            int chance = generateNumber(100);
+            if(chance < 5) randomAsteroid();
+            if(chance > 95) randomEnemy();
+
+            try{
+                keyIterator();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            checkCollisions();
+            view.updateView();
+        }
+    }
+
+    private class Reload extends TimerTask {
+        @Override
+        public  void run(){
+            player.setReload(false);
+        }
+    }
+
+    private class PowerOff extends TimerTask{
+        @Override
+        public void run() {player.setPowerUp(false);}
+    }
+
+    public void updateAsteroid(Asteroid asteroid){
+        if(asteroid.y > view.getHeight() + LAST_Y || !asteroid.isVisible()){
+            deleteAsteroid(asteroid);
+        }
+        else {
+            asteroid.y += ASTEROID_MOVE_DELTA;
+        }
+    }
+
+    public void updateEnemy(Enemy enemy){
+        if(enemy.y > view.getHeight() + LAST_Y || !enemy.getVisible()){
+            deleteEnemy(enemy);
+        }
+        else {
+            if(generateNumber(2500) < 10){
+                int shotPositionX = enemy.x + enemy.getWidth()/2 - 5;
+                int shotPositionY = enemy.y + enemy.getHeight()/2;
+                enemyShot(shotPositionX, shotPositionY);
+            }
+            enemy.y += ENEMY_MOVE_DELTA;
+        }
+    }
+
+    public void updateMissile(Missile missile){
+        if(missile.y < START_Y_FOR_OBJECTS || !missile.isVisible()) {
+            deleteMissile(missile);
+        }
+        else{
+            missile.y -= PLAYER_MISSILE_MOVE_DELTA;
+        }
+    }
+
+    public void updateEnemyMissile(EnemyMissile enemyMissile){
+        if(enemyMissile.y < START_Y_FOR_OBJECTS || !enemyMissile.isVisible()) {
+            deleteEnemyMissile(enemyMissile);
+        }
+        else{
+            enemyMissile.y += ENEMY_MISSILE_MOVE_DELTA;
+        }
+    }
+
+    public void updateBonus(Bonus bonus){
+        if(bonus.y > view.getHeight() + LAST_Y || !bonus.isVisible()) {
+            deleteBonus(bonus);
+        }
+        else{
+            bonus.y += BONUS_MOVE_DELTA;
         }
     }
 
@@ -391,20 +394,23 @@ public class Controller {
         }
     }
 
-
     public void stop(){
         timer.cancel();
     }
 
-    public void pause(){
+    private void pause(){
         setPause(true);
         timer.cancel();
     }
 
+    private void setPause(Boolean b) {pause = b;}
+
+    public Boolean isPaused() { return pause; }
+
     public void start() {
         setPause(false);
         timer = new Timer();
-        player.reload = false;
+        player.setReload(false);
         pressedKeys = new HashMap<>();
         timer.scheduleAtFixedRate(new ScheduleTask(),
                 INITIAL_DELAY, PERIOD_INTERVAL);
@@ -415,18 +421,31 @@ public class Controller {
         board.addEnemyMissile(em);
     }
 
-    public Boolean isPaused() { return pause; }
+    public void setView(View v){
+        this.view = v;
+    }
 
-    public void setPause(Boolean b) {pause = b;}
+    private void addScore(){
+        player.score += SCORE_DELTA;
+    }
+
+    private Integer generateNumber(Integer bound){
+        return rand.nextInt(bound);
+    }
 
     public void deleteAsteroid(Asteroid asteroid){
+        addScore();
         board.asteroids.remove(asteroid);
     }
 
     public void deleteEnemy(Enemy enemy) {
-        if(rand.nextInt(100) < 10){
-            randomBonus(enemy.x + enemy.getWidth()/2, enemy.y + enemy.getHeight()/2);
+        if(generateNumber(100) < 10){
+            int startBonusX = enemy.x + enemy.getWidth()/2;
+            int startBonusY = enemy.y + enemy.getHeight()/2;
+
+            randomBonus(startBonusX, startBonusY);
         }
+        addScore();
         board.enemies.remove(enemy);
     }
 
@@ -437,6 +456,14 @@ public class Controller {
     public void deleteBonus(Bonus bonus) {board.bonuses.remove(bonus);}
 
     public void deleteEnemyMissile(EnemyMissile em){board.enemyMissiles.remove(em);}
+
+    public void addKey(Integer keyCode, Timestamp timestamp){
+        pressedKeys.put(keyCode, timestamp);
+    }
+
+    public void removeKey(Integer keyCode){
+        pressedKeys.remove(keyCode);
+    }
 }
 
 
