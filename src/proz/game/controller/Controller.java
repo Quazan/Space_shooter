@@ -33,7 +33,7 @@ public class Controller {
     final int BONUS_MOVE_DELTA = 4;
     private final int START_Y_FOR_OBJECTS = -60;
     private final int LAST_Y = 30;
-    private final int SCORE_DELTA = 100;
+    final int SCORE_DELTA = 100;
 
     public Controller(Board b){
         board = b;
@@ -426,7 +426,7 @@ public class Controller {
         this.view = v;
     }
 
-    private void addScore(){
+    void addScore(){
         player.score += SCORE_DELTA;
     }
 

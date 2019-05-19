@@ -12,14 +12,15 @@ public class Board {
     public List<Bonus> bonuses;
     public List<EnemyMissile> enemyMissiles;
 
+    private final int PLAYER_SPAWN_X = 300;
+    private final int PLAYER_SPAWN_Y = 450;
+
     public Board(){
         initBoard();
     }
 
     private void initBoard(){
-        int playerSpawnY = 450;
-        int playerSpawnX = 300;
-        player = new Player(playerSpawnX, playerSpawnY);
+        player = new Player(PLAYER_SPAWN_X, PLAYER_SPAWN_Y);
         asteroids = new ArrayList<>();
         enemies = new ArrayList<>();
         bonuses = new ArrayList<>();

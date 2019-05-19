@@ -209,5 +209,15 @@ public class ControllerTest {
         int delta = bonus.y - originalY;
         assertEquals(controller.BONUS_MOVE_DELTA, delta);
     }
+
+    @Test
+    public void afterAddingScorePlayerScoreIncreases(){
+        final int originalScore = player.score;
+        controller.addScore();
+        int delta = player.score - originalScore;
+
+        assertEquals(controller.SCORE_DELTA, delta);
+    }
+
 }
 
