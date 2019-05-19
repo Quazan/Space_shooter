@@ -20,8 +20,8 @@ public class Controller {
     private Boolean pause;
 
     private Random rand;
-    private static final int HORIZONTAL_MOVE_DELTA = 10;
-    private static final int VERTICAL_MOVE_DELTA = 10;
+    static final int HORIZONTAL_MOVE_DELTA = 10;
+    static final int VERTICAL_MOVE_DELTA = 10;
     public HashMap<Integer, Timestamp> pressedKeys;
     private final int INITIAL_DELAY = 100;
     private final int PERIOD_INTERVAL = 25;
@@ -49,27 +49,27 @@ public class Controller {
         pressedKeys = new HashMap<>();
     }
 
-    private void moveLeft(){
+    void moveLeft(){
         player.x -= HORIZONTAL_MOVE_DELTA;
         checkLeftBorder();
     }
 
-    private void moveRight(){
+    void moveRight(){
         player.x += HORIZONTAL_MOVE_DELTA;
         checkRightBorder();
     }
 
-    private void moveUp(){
+    void moveUp(){
         player.y -= VERTICAL_MOVE_DELTA;
         checkUpperBorder();
     }
 
-    private void moveDown(){
+    void moveDown(){
         player.y += VERTICAL_MOVE_DELTA;
         checkDownBorder();
     }
 
-    private void fire() {
+    void fire() {
 
         if (checkReload()){
             return;
@@ -96,7 +96,7 @@ public class Controller {
         timer.schedule(new Reload(), RELOAD_TIME);
     }
 
-    private void randomAsteroid(){
+    void randomAsteroid(){
         int x = generateNumber(view.getWidth() - 125);
         x += 30;
         Asteroid a = new Asteroid(x, START_Y_FOR_OBJECTS);
@@ -106,7 +106,7 @@ public class Controller {
         }
     }
 
-    private void randomEnemy(){
+    void randomEnemy(){
         int x = generateNumber(view.getWidth() - 125);
         x += 30;
         Enemy enemy = new Enemy(x, START_Y_FOR_OBJECTS);
@@ -115,7 +115,7 @@ public class Controller {
         }
     }
 
-    private void randomBonus(Integer x, Integer y){
+    void randomBonus(Integer x, Integer y){
         Bonus bonus;
         if(generateNumber(10) <= 4){
             bonus = new Bonus(x, y, BonusType.shield);
@@ -344,7 +344,7 @@ public class Controller {
     }
 
     private void keyIterator(){
-        System.out.println(pressedKeys);
+        //System.out.println(pressedKeys);
         for(Integer keyCode : pressedKeys.keySet()){
             if (keyCode == KeyEvent.VK_LEFT) {
                 if(pressedKeys.containsKey(KeyEvent.VK_RIGHT)) {
@@ -417,7 +417,7 @@ public class Controller {
                 INITIAL_DELAY, PERIOD_INTERVAL);
     }
 
-    private void enemyShot(Integer x, Integer y){
+    void enemyShot(Integer x, Integer y){
         EnemyMissile em = new EnemyMissile(x, y);
         board.addEnemyMissile(em);
     }
