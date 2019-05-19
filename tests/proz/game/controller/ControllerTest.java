@@ -12,6 +12,11 @@ public class ControllerTest {
     Board board;
     MockView view;
     Player player;
+    Asteroid asteroid;
+    Enemy enemy;
+    Missile missile;
+    EnemyMissile enemyMissile;
+    Bonus bonus;
 
     private class MockView implements View {
         public boolean updateViewCalled = false;
@@ -158,6 +163,51 @@ public class ControllerTest {
         controller.enemyShot(0 ,0);
         final int enemyShotsCount = 1;
         assertEquals(enemyShotsCount, board.getEnemyMissiles().size());
+    }
+
+    @Test
+    public void afterUpdatingAsteroidItMoves(){
+        asteroid = new Asteroid(0, 0);
+        final int originalY = asteroid.y;
+        controller.updateAsteroid(asteroid);
+        int delta = asteroid.y - originalY;
+        assertEquals(controller.ASTEROID_MOVE_DELTA, delta);
+    }
+
+    @Test
+    public void afterUpdatingEnemyItMoves(){
+        enemy = new Enemy(0, 0);
+        final int originalY = enemy.y;
+        controller.updateEnemy(enemy);
+        int delta = enemy.y - originalY;
+        assertEquals(controller.ENEMY_MOVE_DELTA, delta);
+    }
+
+    @Test
+    public void afterUpdatingPlayerMissileItMoves(){
+        missile = new Missile(0, 0);
+        final int originalY = missile.y;
+        controller.updateMissile(missile);
+        int delta = missile.y - originalY;
+        assertEquals(-controller.PLAYER_MISSILE_MOVE_DELTA, delta);
+    }
+
+    @Test
+    public void afterUpdatingEnemyMissileItMoves(){
+        enemyMissile = new EnemyMissile(0, 0);
+        final int originalY = enemyMissile.y;
+        controller.updateEnemyMissile(enemyMissile);
+        int delta = enemyMissile.y - originalY;
+        assertEquals(controller.ENEMY_MISSILE_MOVE_DELTA, delta);
+    }
+
+    @Test
+    public void afterUpdatingBonusItMoves(){
+        bonus = new Bonus(0, 0, BonusType.power_UP);
+        final int originalY = bonus.y;
+        controller.updateBonus(bonus);
+        int delta = bonus.y - originalY;
+        assertEquals(controller.BONUS_MOVE_DELTA, delta);
     }
 }
 

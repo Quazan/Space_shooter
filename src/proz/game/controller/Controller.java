@@ -26,11 +26,11 @@ public class Controller {
     private final int INITIAL_DELAY = 100;
     private final int PERIOD_INTERVAL = 25;
     private final int RELOAD_TIME = 200;
-    private final int ENEMY_MOVE_DELTA = 2;
-    private final int ASTEROID_MOVE_DELTA = 2;
-    private final int PLAYER_MISSILE_MOVE_DELTA = 8;
-    private final int ENEMY_MISSILE_MOVE_DELTA = 6;
-    private final int BONUS_MOVE_DELTA = 4;
+    final int ENEMY_MOVE_DELTA = 2;
+    final int ASTEROID_MOVE_DELTA = 2;
+    final int PLAYER_MISSILE_MOVE_DELTA = 8;
+    final int ENEMY_MISSILE_MOVE_DELTA = 6;
+    final int BONUS_MOVE_DELTA = 4;
     private final int START_Y_FOR_OBJECTS = -60;
     private final int LAST_Y = 30;
     private final int SCORE_DELTA = 100;
