@@ -2,11 +2,10 @@ package proz.game;
 
 import proz.game.controller.Controller;
 import proz.game.model.Board;
-import proz.game.view.SwingView;
 import proz.game.model.GameMenu;
+import proz.game.view.SwingView;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -53,22 +52,12 @@ public class Main {
             if("NEW".equals(e.getActionCommand())){
                 startGame(frame);
             }
-            if("Scores".equals(e.getActionCommand())){
-                showLeaderboards();
-            }
-
             if("EXIT".equals(e.getActionCommand())){
                 System.exit(0);
             }
         };
 
         menuItem.setActionCommand("NEW");
-        menuItem.addActionListener(menuListener);
-
-        menuItem = new JMenuItem("Leaderboards");
-        menu.add(menuItem);
-
-        menuItem.setActionCommand("Scores");
         menuItem.addActionListener(menuListener);
 
         menuItem = new JMenuItem("Exit");
@@ -84,26 +73,17 @@ public class Main {
         frame.setVisible(true);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
-
     }
 
     private static void createMainMenu(JFrame frame){
         GameMenu mainMenu = new GameMenu();
         mainMenu.setLayout(null);
 
-        //ImageIcon ii;
-
         JButton newGameButton = new JButton("New game");
-        //ii = new ImageIcon("C:\\Users\\alexe\\OneDrive - Politechnika Warszawska\\Pulpit\\Space_shooter\\assets\\PNG\\UI\\buttonRed.png");
-        //newGameButton.setIcon(ii);
-        newGameButton.setActionCommand("START");
-        newGameButton.setBounds(frame.getWidth()/2-150, 200,300 , 50);
-        mainMenu.add(newGameButton);
 
-        JButton leaderboardsButton = new JButton("Leaderboards");
-        leaderboardsButton.setActionCommand("SCORES");
-        leaderboardsButton.setBounds(frame.getWidth()/2-150, 300, 300, 50);
-        mainMenu.add(leaderboardsButton);
+        newGameButton.setActionCommand("START");
+        newGameButton.setBounds(frame.getWidth()/2-150, 300,300 , 50);
+        mainMenu.add(newGameButton);
 
         JButton exitButton = new JButton("Exit");
         exitButton.setActionCommand("EXIT");
@@ -116,9 +96,6 @@ public class Main {
                 if("START".equals(e.getActionCommand())){
                     startGame(frame);
                 }
-                if("SCORES".equals(e.getActionCommand())){
-                    showLeaderboards();
-                }
                 if("EXIT".equals(e.getActionCommand())){
                     System.exit(0);
                 }
@@ -126,44 +103,8 @@ public class Main {
         };
 
         newGameButton.addActionListener(mainMenuListener);
-        leaderboardsButton.addActionListener(mainMenuListener);
         exitButton.addActionListener(mainMenuListener);
         frame.add(mainMenu);
-    }
-
-    private static void showLeaderboards() {
-
-        //tymczasowo -> trzeba ogarnąć JSONA do tego
-
-        JFrame frame = new JFrame("Leaderboards");
-        Object[][] data = {
-                {"Kathy", "Smith",
-                        "Snowboarding", new Integer(5), new Boolean(false)},
-                {"John", "Doe",
-                        "Rowing", new Integer(3), new Boolean(true)},
-                {"Sue", "Black",
-                        "Knitting", new Integer(2), new Boolean(false)},
-                {"Jane", "White",
-                        "Speed reading", new Integer(20), new Boolean(true)},
-                {"Joe", "Brown",
-                        "Pool", new Integer(10), new Boolean(false)}
-        };
-
-        String[] columnNames = {"First Name",
-                "Last Name",
-                "Sport",
-                "# of Years",
-                "Vegetarian"};
-
-        JTable scoresTable = new JTable(data, columnNames);
-
-        frame.setSize(800, 600);
-
-        frame.getContentPane().add(scoresTable);
-
-        frame.setVisible(true);
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
     }
 
     public static void main(String[] args){

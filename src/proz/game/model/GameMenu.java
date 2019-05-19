@@ -22,7 +22,7 @@ public class GameMenu extends JPanel {
             }
 
         ii = new ImageIcon("assets\\PNG\\logo.png");
-            Image logo = ii.getImage();
-            g.drawImage(logo, getWidth()/2-ii.getIconWidth()/2, 30, null);
+        Image logo = ii.getImage();
+        g.drawImage(logo, getWidth()/2-ii.getIconWidth()/2, 60, null);
     }
 }

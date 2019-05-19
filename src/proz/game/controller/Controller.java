@@ -142,12 +142,6 @@ public class Controller {
         return true;
     }
 
-    private void spawnAsteroid(int x, int y){
-        Asteroid a = new Asteroid(x, y);
-
-        board.addAsteroid(a);
-    }
-
     private void checkLeftBorder(){
         if(player.x < 0){
             player.x = 0;
@@ -308,7 +302,9 @@ public class Controller {
                 Rectangle missileBounds = missile.getBounds();
 
                 if(missileBounds.intersects(asteroidBounds)){
+                    System.out.println(asteroid.lives);
                     asteroid.takeDamage();
+                    System.out.println(asteroid.lives);
                     missile.setVisible(false);
                     player.score += 100;
                 }
@@ -356,7 +352,7 @@ public class Controller {
                     moveLeft();
                 }
             }
-            if (keyCode == KeyEvent.VK_RIGHT) {
+            else if (keyCode == KeyEvent.VK_RIGHT) {
                 if(pressedKeys.containsKey(KeyEvent.VK_LEFT)) {
                     if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_LEFT))) {
                         moveRight();
@@ -366,7 +362,7 @@ public class Controller {
                     moveRight();
                 }
             }
-            if (keyCode == KeyEvent.VK_UP) {
+            else if (keyCode == KeyEvent.VK_UP) {
                 if(pressedKeys.containsKey(KeyEvent.VK_DOWN)) {
                     if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_DOWN))) {
                         moveUp();
@@ -376,7 +372,7 @@ public class Controller {
                     moveUp();
                 }
             }
-            if (keyCode == KeyEvent.VK_DOWN) {
+            else if (keyCode == KeyEvent.VK_DOWN) {
                 if(pressedKeys.containsKey(KeyEvent.VK_UP)) {
                     if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_UP))) {
                         moveDown();
@@ -386,17 +382,21 @@ public class Controller {
                     moveDown();
                 }
             }
-            if (keyCode == KeyEvent.VK_SPACE) {
+            else if (keyCode == KeyEvent.VK_SPACE) {
                 fire();
             }
-            if (keyCode == KeyEvent.VK_ESCAPE) {
-                stop();
+            else if (keyCode == KeyEvent.VK_ESCAPE) {
+                pause();
             }
         }
     }
 
 
     public void stop(){
+        timer.cancel();
+    }
+
+    public void pause(){
         setPause(true);
         timer.cancel();
     }
@@ -437,7 +437,6 @@ public class Controller {
     public void deleteBonus(Bonus bonus) {board.bonuses.remove(bonus);}
 
     public void deleteEnemyMissile(EnemyMissile em){board.enemyMissiles.remove(em);}
-
 }
 
 

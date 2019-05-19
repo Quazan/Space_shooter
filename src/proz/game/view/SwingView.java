@@ -101,20 +101,27 @@ public class SwingView extends JPanel implements View{
     }
 
     private void paintGameOver(Graphics2D g){
-        /*
+
         ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
-        JButton but = new JButton("Hello", ij);
-        but.setBounds(100, 100, ij.getIconWidth(), ij.getIconHeight());
+        JButton button = new JButton("Hello", ij);
+        button.setBounds(100, 100, ij.getIconWidth(), ij.getIconHeight());
         SwingView view = this;
-        but.addActionListener(new ActionListener() {
+        button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                controller.start();
+                //controller.start();
+                System.out.println("hi");
+                view.remove(button);
+                Board b = new Board();
+                Controller c = new Controller(b);
+                setController(c);
+                setModel(b);
+                controller.setView(view);
             }
         });
-        this.add(but);
+        this.add(button);
         this.setVisible(true);
-         */
+
 
         fillBackground(g);
         ImageIcon ii = new ImageIcon("assets\\PNG\\game_over_1.png");
@@ -131,13 +138,13 @@ public class SwingView extends JPanel implements View{
             @Override
             public void actionPerformed(ActionEvent e) {
                 view.remove(but);
+                System.out.println("hi");
                 controller.start();
             }
         });
         this.add(but);
         //this.setVisible(true);
     }
-
 
     private void paintScore(Graphics2D g){
         g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
@@ -254,7 +261,7 @@ public class SwingView extends JPanel implements View{
                 g.drawImage(imageBackground, x, y, this);
             }
     }
-    
+
     @Override
     public void updateView(){
         repaint();
