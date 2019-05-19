@@ -11,7 +11,7 @@ public class Player extends GameObject{
     public Integer lives = 3;
 
     public Boolean reload;
-    public Boolean shield;
+    private Boolean shield;
     public Boolean powerUp;
 
     private ImageIcon shieldImage;
@@ -21,7 +21,7 @@ public class Player extends GameObject{
     Player(Integer startX, Integer startY){
         super(startX, startY);
         reload = false;
-        shield = true;
+        shield = false;
         powerUp = false;
         missiles = new ArrayList<>();
 

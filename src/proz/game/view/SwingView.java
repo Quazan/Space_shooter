@@ -62,7 +62,7 @@ public class SwingView extends JPanel implements View{
         paintAsteroid(g);
         paintEnemy(g);
         paintPlayer(g);
-        paintLives(g);
+        paintHUD(g);
         paintScore(g);
 
         if(controller.isPaused()){
@@ -77,6 +77,20 @@ public class SwingView extends JPanel implements View{
             g.drawImage(player.getImage(), player.x, player.y, null);
             if(player.isShielded()){
                 g.drawImage(player.getShieldImage(), player.x - 10, player.y - 15, null);
+            }
+            ImageIcon ii;
+            switch (player.lives){
+                case 2:
+                    ii = new ImageIcon("assets\\PNG\\Damage\\playerShip2_damage1.png");
+                    g.drawImage(ii.getImage(), player.x, player.y, this);
+                    break;
+                case 1:
+                    ii = new ImageIcon("assets\\PNG\\Damage\\playerShip2_damage2.png");
+                    g.drawImage(ii.getImage(), player.x, player.y, this);
+                    break;
+                default:
+                    break;
+
             }
         }
         else{
@@ -205,16 +219,30 @@ public class SwingView extends JPanel implements View{
         }
     }
 
-    private void paintLives(Graphics2D g){
+    private void paintHUD(Graphics2D g){
         ImageIcon ii = new ImageIcon("assets\\PNG\\UI\\playerLife2_red.png");
-        Image liveImage = ii.getImage();
+        Image imageHUD = ii.getImage();
         int x = ii.getIconWidth();
         //int y = ii.getIconHeight();
         int off = 20;
         for(int i = 0; i < player.lives; i++){
-            g.drawImage(liveImage, off, getHeight() - 100, this);
+            g.drawImage(imageHUD, off, getHeight() - 100, this);
             off += x + 10;
         }
+
+        if(player.isShielded()){
+            ii = new ImageIcon("assets\\PNG\\Power-ups\\shield_silver.png");
+            imageHUD = ii.getImage();
+            g.drawImage(imageHUD, off, getHeight()-100, this);
+            off += ii.getIconWidth() + 10;
+        }
+
+        if(player.isPoweredUp()){
+            ii = new ImageIcon("assets\\PNG\\Power-ups\\bold_silver.png");
+            imageHUD = ii.getImage();
+            g.drawImage(imageHUD, off, getHeight()-100, this);
+        }
+
     }
 
     private void fillBackground(Graphics2D g){
@@ -226,8 +254,7 @@ public class SwingView extends JPanel implements View{
                 g.drawImage(imageBackground, x, y, this);
             }
     }
-
-
+    
     @Override
     public void updateView(){
         repaint();
