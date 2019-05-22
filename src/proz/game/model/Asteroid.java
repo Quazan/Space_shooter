@@ -3,25 +3,26 @@ package proz.game.model;
 import java.awt.*;
 import java.util.Random;
 
-public class Asteroid extends GameObject{
+public class Asteroid extends GameObject {
     public Integer lives;
     Random rand;
 
-    public Asteroid(Integer startX, Integer startY){
+    public Asteroid(Integer startX, Integer startY) {
         super(startX, startY);
     }
 
     @Override
-    public Image getImage(){
+    public Image getImage() {
         return this.imageIcon.getImage();
     }
 
     @Override
-    protected void setImage(){
+    protected void setImage() {
         rand = new Random();
         String imageUrl;
+
         int val = rand.nextInt(8);
-        switch (val){
+        switch (val) {
             case 0:
                 imageUrl = "assets\\PNG\\Meteors\\meteorGrey_med1.png";
                 lives = 1;
@@ -62,9 +63,9 @@ public class Asteroid extends GameObject{
         getDimensions();
     }
 
-    public void takeDamage(){
+    public void takeDamage() {
         this.lives--;
-        if(this.lives <= 0){
+        if (this.lives <= 0) {
             setVisible(false);
         }
     }

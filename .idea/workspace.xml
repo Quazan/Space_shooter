@@ -8,16 +8,17 @@
   <component name="ChangeListManager">
     <list default="true" id="6c6f25a2-66df-4f76-b242-d4f828f06ee1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/controller/Controller$PowerOff.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/controller/Controller$PowerOff.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/controller/Controller$Reload.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/controller/Controller$Reload.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/controller/Controller$ScheduleTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/controller/Controller$ScheduleTask.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/Main$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/controller/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/controller/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/model/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView$3.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Space_shooter/proz/game/controller/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Space_shooter/proz/game/controller/ControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proz/game/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/proz/game/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/model/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/model/Asteroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proz/game/view/SwingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/view/SwingView.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,7 +32,50 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/controller/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-26">
+              <caret line="326" column="20" selection-start-line="326" selection-start-column="20" selection-end-line="326" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#11833#11834#0" expanded="true" />
+                <element signature="e#11863#11864#0" expanded="true" />
+                <element signature="e#12474#12475#0" expanded="true" />
+                <element signature="e#12503#12504#0" expanded="true" />
+                <element signature="e#12525#12526#0" expanded="true" />
+                <element signature="e#12568#12569#0" expanded="true" />
+                <element signature="e#12620#12621#0" expanded="true" />
+                <element signature="e#12662#12663#0" expanded="true" />
+                <element signature="e#12714#12715#0" expanded="true" />
+                <element signature="e#12762#12763#0" expanded="true" />
+                <element signature="e#13119#13120#0" expanded="true" />
+                <element signature="e#13166#13167#0" expanded="true" />
+                <element signature="e#13388#13389#0" expanded="true" />
+                <element signature="e#13439#13440#0" expanded="true" />
+                <element signature="e#13484#13485#0" expanded="true" />
+                <element signature="e#13527#13528#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/view/SwingView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#8088#8089#0" expanded="true" />
+                <element signature="e#8314#8315#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -71,19 +115,19 @@
         <option value="$PROJECT_DIR$/src/proz/game/model/GameObject.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/Bonus.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/BonusType.java" />
-        <option value="$PROJECT_DIR$/src/proz/game/model/Asteroid.java" />
         <option value="$PROJECT_DIR$/Resources/leaderboards.json" />
         <option value="$PROJECT_DIR$/src/proz/game/model/GameMenu.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/Player.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/Enemy.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/EnemyMissile.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/Missile.java" />
-        <option value="$PROJECT_DIR$/src/proz/game/Main.java" />
         <option value="$PROJECT_DIR$/tests/proz/game/controller/ControllerTest.java" />
         <option value="$PROJECT_DIR$/tests/proz/game/model/PlayerTest.java" />
         <option value="$PROJECT_DIR$/tests/proz/game/model/BoardTest.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/Board.java" />
+        <option value="$PROJECT_DIR$/src/proz/game/Main.java" />
         <option value="$PROJECT_DIR$/src/proz/game/controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/proz/game/model/Asteroid.java" />
         <option value="$PROJECT_DIR$/src/proz/game/view/SwingView.java" />
       </list>
     </option>
@@ -199,6 +243,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
@@ -343,8 +388,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21271394" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21271394" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -353,7 +399,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13773796" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.13773796" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -549,12 +595,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Asteroid.java">
+    <entry file="file://$PROJECT_DIR$/tests/proz/game/controller/ControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="-2865">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/proz/game/model/BoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-77">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#468#469#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -577,6 +655,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/EnemyMissile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
+          <folding>
+            <element signature="e#222#223#0" expanded="true" />
+            <element signature="e#265#266#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/proz/game/model/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -590,36 +679,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/EnemyMissile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="12" selection-end-column="15" />
-          <folding>
-            <element signature="e#222#223#0" expanded="true" />
-            <element signature="e#265#266#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proz/game/model/GameMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="27" column="1" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#takeDamage#0;class#Player#0" />
-            <element signature="method#setBonus#0;class#Player#0" />
-            <element signature="method#setShieldImage#0;class#Player#0" />
           </folding>
         </state>
       </provider>
@@ -649,40 +714,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/proz/game/controller/ControllerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2865">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        <state relative-caret-position="541">
+          <caret line="91" selection-start-line="91" selection-end-line="91" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/proz/game/model/BoardTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-77">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="method#takeDamage#0;class#Player#0" />
+            <element signature="method#setBonus#0;class#Player#0" />
+            <element signature="method#setShieldImage#0;class#Player#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proz/game/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-587">
-          <caret line="48" column="56" selection-start-line="48" selection-start-column="56" selection-end-line="48" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        <state relative-caret-position="595">
+          <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -691,52 +739,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proz/game/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2626">
-          <caret line="369" column="31" selection-start-line="369" selection-start-column="31" selection-end-line="369" selection-end-column="31" />
+        <state relative-caret-position="-26">
+          <caret line="326" column="20" selection-start-line="326" selection-start-column="20" selection-end-line="326" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1134#1135#0" expanded="true" />
-            <element signature="e#6693#6694#0" expanded="true" />
-            <element signature="e#6736#6737#0" expanded="true" />
-            <element signature="e#11394#11395#0" expanded="true" />
-            <element signature="e#11424#11425#0" expanded="true" />
-            <element signature="e#12035#12036#0" expanded="true" />
-            <element signature="e#12064#12065#0" expanded="true" />
-            <element signature="e#12086#12087#0" expanded="true" />
-            <element signature="e#12129#12130#0" expanded="true" />
-            <element signature="e#12181#12182#0" expanded="true" />
-            <element signature="e#12223#12224#0" expanded="true" />
-            <element signature="e#12275#12276#0" expanded="true" />
-            <element signature="e#12323#12324#0" expanded="true" />
-            <element signature="e#12680#12681#0" expanded="true" />
-            <element signature="e#12727#12728#0" expanded="true" />
-            <element signature="e#12949#12950#0" expanded="true" />
-            <element signature="e#13000#13001#0" expanded="true" />
-            <element signature="e#13045#13046#0" expanded="true" />
-            <element signature="e#13088#13089#0" expanded="true" />
+            <element signature="e#11833#11834#0" expanded="true" />
+            <element signature="e#11863#11864#0" expanded="true" />
+            <element signature="e#12474#12475#0" expanded="true" />
+            <element signature="e#12503#12504#0" expanded="true" />
+            <element signature="e#12525#12526#0" expanded="true" />
+            <element signature="e#12568#12569#0" expanded="true" />
+            <element signature="e#12620#12621#0" expanded="true" />
+            <element signature="e#12662#12663#0" expanded="true" />
+            <element signature="e#12714#12715#0" expanded="true" />
+            <element signature="e#12762#12763#0" expanded="true" />
+            <element signature="e#13119#13120#0" expanded="true" />
+            <element signature="e#13166#13167#0" expanded="true" />
+            <element signature="e#13388#13389#0" expanded="true" />
+            <element signature="e#13439#13440#0" expanded="true" />
+            <element signature="e#13484#13485#0" expanded="true" />
+            <element signature="e#13527#13528#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Asteroid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        <state relative-caret-position="178">
+          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#440#441#0" expanded="true" />
-            <element signature="e#468#469#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proz/game/view/SwingView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2219">
-          <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="103" selection-end-column="8" />
+        <state relative-caret-position="36">
+          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#8088#8089#0" expanded="true" />
+            <element signature="e#8314#8315#0" expanded="true" />
           </folding>
         </state>
       </provider>

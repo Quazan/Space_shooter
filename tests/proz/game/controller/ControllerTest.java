@@ -1,4 +1,5 @@
 package proz.game.controller;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -6,6 +7,7 @@ import org.junit.Test;
 
 import proz.game.model.*;
 import proz.game.view.*;
+
 public class ControllerTest {
 
     Controller controller;
@@ -40,8 +42,12 @@ public class ControllerTest {
         }
 
         @Override
-        public int getHeight() {return 600;}
-    };
+        public int getHeight() {
+            return 600;
+        }
+    }
+
+    ;
 
     @Before
     public void setUp() {
@@ -125,48 +131,48 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterFiringShotIsFired(){
+    public void afterFiringShotIsFired() {
         controller.fire();
         final int missileCount = 1;
         assertEquals(missileCount, player.getMissiles().size());
     }
 
     @Test
-    public void afterCreatingAsteroidIsCreated(){
+    public void afterCreatingAsteroidIsCreated() {
         controller.randomAsteroid();
         final int asteroidCount = 1;
         assertEquals(asteroidCount, board.getAsteroids().size());
     }
 
     @Test
-    public void afterCreatingEnemyIsCreated(){
+    public void afterCreatingEnemyIsCreated() {
         controller.randomEnemy();
         final int enemyCount = 1;
         assertEquals(enemyCount, board.getEnemies().size());
     }
 
     @Test
-    public void afterCreatingBonusIsCreated(){
+    public void afterCreatingBonusIsCreated() {
         controller.randomBonus(0, 0);
         final int bonusCount = 1;
         assertEquals(bonusCount, board.getBonuses().size());
     }
 
     @Test
-    public void afterFiringReloadIsOn(){
+    public void afterFiringReloadIsOn() {
         controller.fire();
         assertTrue(player.isReloading());
     }
 
     @Test
-    public void afterEnemyShotsIsMade(){
-        controller.enemyShot(0 ,0);
+    public void afterEnemyShotsIsMade() {
+        controller.enemyShot(0, 0);
         final int enemyShotsCount = 1;
         assertEquals(enemyShotsCount, board.getEnemyMissiles().size());
     }
 
     @Test
-    public void afterUpdatingAsteroidItMoves(){
+    public void afterUpdatingAsteroidItMoves() {
         asteroid = new Asteroid(0, 0);
         final int originalY = asteroid.y;
         controller.updateAsteroid(asteroid);
@@ -175,7 +181,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterUpdatingEnemyItMoves(){
+    public void afterUpdatingEnemyItMoves() {
         enemy = new Enemy(0, 0);
         final int originalY = enemy.y;
         controller.updateEnemy(enemy);
@@ -184,7 +190,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterUpdatingPlayerMissileItMoves(){
+    public void afterUpdatingPlayerMissileItMoves() {
         missile = new Missile(0, 0);
         final int originalY = missile.y;
         controller.updateMissile(missile);
@@ -193,7 +199,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterUpdatingEnemyMissileItMoves(){
+    public void afterUpdatingEnemyMissileItMoves() {
         enemyMissile = new EnemyMissile(0, 0);
         final int originalY = enemyMissile.y;
         controller.updateEnemyMissile(enemyMissile);
@@ -202,7 +208,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterUpdatingBonusItMoves(){
+    public void afterUpdatingBonusItMoves() {
         bonus = new Bonus(0, 0, BonusType.power_UP);
         final int originalY = bonus.y;
         controller.updateBonus(bonus);
@@ -211,7 +217,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterAddingScorePlayerScoreIncreases(){
+    public void afterAddingScorePlayerScoreIncreases() {
         final int originalScore = player.score;
         controller.addScore();
         int delta = player.score - originalScore;

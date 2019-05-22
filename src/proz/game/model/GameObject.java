@@ -11,22 +11,22 @@ public abstract class GameObject {
     protected ImageIcon imageIcon;
     boolean visible;
 
-    public GameObject(Integer X, Integer Y){
+    public GameObject(Integer X, Integer Y) {
         this.x = X;
         this.y = Y;
         setVisible(true);
         setImage();
     }
 
-    public Rectangle getBounds(){
+    public Rectangle getBounds() {
         return new Rectangle(x, y, width, height);
     }
 
-    protected void loadImage(String str){
+    protected void loadImage(String str) {
         imageIcon = new ImageIcon(str);
     }
 
-    protected void getDimensions(){
+    protected void getDimensions() {
         width = imageIcon.getIconWidth();
         height = imageIcon.getIconHeight();
     }
@@ -39,15 +39,15 @@ public abstract class GameObject {
         return width;
     }
 
-    public int getHeight(){
+    public int getHeight() {
         return height;
     }
 
-    public void setVisible(boolean b){
+    public void setVisible(boolean b) {
         visible = b;
     }
 
-    public boolean isVisible(){
+    public boolean isVisible() {
         return visible;
     }
 }

@@ -2,26 +2,26 @@ package proz.game.model;
 
 import java.awt.*;
 
-public class Bonus extends GameObject{
+public class Bonus extends GameObject {
     BonusType type;
 
-    public Bonus(Integer startX, Integer startY, BonusType bt){
+    public Bonus(Integer startX, Integer startY, BonusType bt) {
         super(startX, startY);
         type = bt;
         setImage();
     }
 
     @Override
-    public Image getImage(){
+    public Image getImage() {
         return imageIcon.getImage();
     }
 
     @Override
-    public void setImage(){
+    public void setImage() {
         String imageUrl;
-        if(type == null) return;
+        if (type == null) return;
 
-        switch (type){
+        switch (type) {
             case shield:
                 imageUrl = "assets\\PNG\\Power-ups\\powerupRed_shield.png";
                 break;
@@ -39,6 +39,7 @@ public class Bonus extends GameObject{
     }
 
 
-
-    public BonusType getType() {return type;}
+    public BonusType getType() {
+        return type;
+    }
 }

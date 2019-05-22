@@ -7,19 +7,18 @@ import proz.game.view.SwingView;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Main {
-    private static Board createModel(){
+    private static Board createModel() {
         return new Board();
     }
 
-    private static Controller createController(Board b){
+    private static Controller createController(Board b) {
         return new Controller(b);
     }
 
-    private static SwingView createModelViewController(){
+    private static SwingView createModelViewController() {
         Board b = createModel();
         Controller c = createController(b);
         SwingView v = new SwingView();
@@ -29,7 +28,7 @@ public class Main {
         return v;
     }
 
-    private static void startGame(JFrame frame){
+    private static void startGame(JFrame frame) {
         frame.getContentPane().removeAll();
         SwingView v = createModelViewController();
         frame.getContentPane().add(v);
@@ -37,30 +36,21 @@ public class Main {
         v.requestFocus();
     }
 
-    private static void createAndShowGUI(){
-        //trzeba tutaj posprzątać
-        JFrame frame = new JFrame("Space shooter"){
-            @Override
-            public Dimension getPreferredSize(){
-                return new Dimension(800, 600);
-            }
-        };
-
-        frame.setPreferredSize(new Dimension(800, 600));
-        frame.pack();
+    private static void createBar(JFrame frame) {
         JMenuBar menuBar = new JMenuBar();
         JMenu menu = new JMenu("MENU");
         menuBar.add(menu);
+
         JMenuItem menuItem = new JMenuItem("New game");
         menu.add(menuItem);
 
         createMainMenu(frame);
 
         ActionListener menuListener = e -> {
-            if("NEW".equals(e.getActionCommand())){
+            if ("NEW".equals(e.getActionCommand())) {
                 startGame(frame);
             }
-            if("EXIT".equals(e.getActionCommand())){
+            if ("EXIT".equals(e.getActionCommand())) {
                 System.exit(0);
             }
         };
@@ -75,38 +65,48 @@ public class Main {
         menuItem.addActionListener(menuListener);
 
         frame.setJMenuBar(menuBar);
+    }
+
+    private static void createAndShowGUI() {
+        JFrame frame = new JFrame("Space shooter") {
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(800, 600);
+            }
+        };
+
+        frame.setPreferredSize(new Dimension(800, 600));
+        frame.pack();
+
+        createBar(frame);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
         frame.setVisible(true);
         frame.setResizable(true);
         frame.setLocationRelativeTo(null);
     }
 
-    private static void createMainMenu(JFrame frame){
+    private static void createMainMenu(JFrame frame) {
         GameMenu mainMenu = new GameMenu();
         mainMenu.setLayout(null);
 
         JButton newGameButton = new JButton("New game");
 
         newGameButton.setActionCommand("START");
-        newGameButton.setBounds(frame.getWidth()/2-150, 300,300 , 50);
+        newGameButton.setBounds(frame.getWidth() / 2 - 150, 300, 300, 50);
         mainMenu.add(newGameButton);
 
         JButton exitButton = new JButton("Exit");
         exitButton.setActionCommand("EXIT");
-        exitButton.setBounds(frame.getWidth()/2-150, 400, 300, 50);
+        exitButton.setBounds(frame.getWidth() / 2 - 150, 400, 300, 50);
         mainMenu.add(exitButton);
 
-        ActionListener mainMenuListener = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if("START".equals(e.getActionCommand())){
-                    startGame(frame);
-                }
-                if("EXIT".equals(e.getActionCommand())){
-                    System.exit(0);
-                }
+        ActionListener mainMenuListener = e -> {
+            if ("START".equals(e.getActionCommand())) {
+                startGame(frame);
+            }
+            if ("EXIT".equals(e.getActionCommand())) {
+                System.exit(0);
             }
         };
 
@@ -115,7 +115,7 @@ public class Main {
         frame.add(mainMenu);
     }
 
-    public static void main(String[] args){
-        javax.swing.SwingUtilities.invokeLater(() -> createAndShowGUI());
+    public static void main(String[] args) {
+        javax.swing.SwingUtilities.invokeLater(Main::createAndShowGUI);
     }
 }

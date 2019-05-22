@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player extends GameObject{
+public class Player extends GameObject {
     public Integer score = 0;
     public Integer lives = 3;
 
@@ -17,7 +17,7 @@ public class Player extends GameObject{
 
     public List<Missile> missiles;
 
-    Player(Integer startX, Integer startY){
+    Player(Integer startX, Integer startY) {
         super(startX, startY);
         reload = false;
         shield = true;
@@ -28,38 +28,39 @@ public class Player extends GameObject{
     }
 
     @Override
-    public Image getImage(){
+    public Image getImage() {
         return imageIcon.getImage();
     }
 
     @Override
-    protected void setImage(){
+    protected void setImage() {
         String imageUrl = "assets\\PNG\\playerShip2_red.png";
         loadImage(imageUrl);
         getDimensions();
     }
 
-    public List<Missile> getMissiles() {return missiles;}
+    public List<Missile> getMissiles() {
+        return missiles;
+    }
 
-    public void addMissile(Missile m){
+    public void addMissile(Missile m) {
         missiles.add(m);
     }
 
-    public void takeDamage(){
-        if(shield){
+    public void takeDamage() {
+        if (shield) {
             shield = false;
-        }
-        else{
+        } else {
             lives--;
         }
 
-        if(lives <= 0){
+        if (lives <= 0) {
             setVisible(false);
         }
     }
 
-    public void setBonus(Bonus bonus){
-        switch (bonus.getType()){
+    public void setBonus(Bonus bonus) {
+        switch (bonus.getType()) {
 
             case power_UP:
                 powerUp = true;
@@ -71,30 +72,36 @@ public class Player extends GameObject{
         }
     }
 
-    public void setReload(Boolean b) {reload = b;}
+    public void setReload(Boolean b) {
+        reload = b;
+    }
 
-    public Boolean isReloading() {return reload;}
+    public Boolean isReloading() {
+        return reload;
+    }
 
-    public Boolean isShielded(){
+    public Boolean isShielded() {
         return shield;
     }
 
-    public void setPowerUp(Boolean b) {powerUp = b;}
+    public void setPowerUp(Boolean b) {
+        powerUp = b;
+    }
 
-    public Boolean isPoweredUp(){
+    public Boolean isPoweredUp() {
         return powerUp;
     }
 
-    public Image getShieldImage(){
+    public Image getShieldImage() {
         return shieldImage.getImage();
     }
 
-    private void setShieldImage(){
+    private void setShieldImage() {
         String imageUrl = "assets\\PNG\\Effects\\shield1.png";
         shieldImage = new ImageIcon(imageUrl);
     }
 
-    public Rectangle getShieldBounds(){
+    public Rectangle getShieldBounds() {
         return new Rectangle(x, y, shieldImage.getIconWidth(), shieldImage.getIconHeight());
     }
 }

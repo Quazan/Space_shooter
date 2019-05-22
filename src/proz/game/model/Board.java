@@ -15,39 +15,51 @@ public class Board {
     private final int PLAYER_SPAWN_X = 300;
     private final int PLAYER_SPAWN_Y = 450;
 
-    public Board(){
+    public Board() {
         initBoard();
     }
 
-    private void initBoard(){
+    private void initBoard() {
         resetBoard();
     }
 
-    public Player getPlayer(){
+    public Player getPlayer() {
         return this.player;
     }
 
-    public List<Asteroid> getAsteroids(){
+    public List<Asteroid> getAsteroids() {
         return asteroids;
     }
 
-    public List<Enemy> getEnemies() { return enemies;}
+    public List<Enemy> getEnemies() {
+        return enemies;
+    }
 
-    public List<Bonus> getBonuses() {return  bonuses;}
+    public List<Bonus> getBonuses() {
+        return bonuses;
+    }
 
-    public List<EnemyMissile> getEnemyMissiles() {return enemyMissiles;}
+    public List<EnemyMissile> getEnemyMissiles() {
+        return enemyMissiles;
+    }
 
-    public void addAsteroid(Asteroid a){
+    public void addAsteroid(Asteroid a) {
         asteroids.add(a);
     }
 
-    public void addEnemy(Enemy e) { enemies.add(e);}
+    public void addEnemy(Enemy e) {
+        enemies.add(e);
+    }
 
-    public void addBonus(Bonus b) {bonuses.add(b);}
+    public void addBonus(Bonus b) {
+        bonuses.add(b);
+    }
 
-    public void addEnemyMissile(EnemyMissile em) { enemyMissiles.add(em);}
+    public void addEnemyMissile(EnemyMissile em) {
+        enemyMissiles.add(em);
+    }
 
-    public void resetBoard(){
+    public void resetBoard() {
         player = new Player(PLAYER_SPAWN_X, PLAYER_SPAWN_Y);
         asteroids = new ArrayList<>();
         enemies = new ArrayList<>();
