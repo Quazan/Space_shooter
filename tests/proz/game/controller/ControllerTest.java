@@ -13,18 +13,18 @@ import java.sql.Timestamp;
 
 public class ControllerTest {
 
-    Controller controller;
-    Board board;
-    MockView view;
-    Player player;
-    Asteroid asteroid;
-    Enemy enemy;
-    Missile missile;
-    EnemyMissile enemyMissile;
-    Bonus bonus;
+    private Controller controller;
+    private Board board;
+    private MockView view;
+    private Player player;
+    private Asteroid asteroid;
+    private Enemy enemy;
+    private Missile missile;
+    private EnemyMissile enemyMissile;
+    private Bonus bonus;
 
     private class MockView implements View {
-        public boolean updateViewCalled = false;
+        boolean updateViewCalled = false;
 
         @Override
         public void updateView() {
@@ -294,7 +294,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterAddingKeyToMapPlayerMoves(){
+    public void afterAddingKeyToMapPlayerMoves() {
         final int originalY = player.y;
         controller.addKey(KeyEvent.VK_UP, new Timestamp(System.currentTimeMillis()));
         controller.keyIterator();
@@ -304,10 +304,10 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterAddingTwoContraryKeysToMapPlayerMovesToTheLatestKey(){
+    public void afterAddingTwoContraryKeysToMapPlayerMovesToTheLatestKey() {
         final int originalY = player.y;
         controller.addKey(KeyEvent.VK_UP, new Timestamp(System.currentTimeMillis()));
-        controller.addKey(KeyEvent.VK_DOWN, new Timestamp(System.currentTimeMillis()+10));
+        controller.addKey(KeyEvent.VK_DOWN, new Timestamp(System.currentTimeMillis() + 10));
         controller.keyIterator();
         int delta = originalY - player.y;
 
@@ -315,7 +315,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterAddingPlayerAndEnemyInTheSamePlacePlayerLosesLife(){
+    public void afterAddingPlayerAndEnemyInTheSamePlacePlayerLosesLife() {
         int originalLifeCount = player.lives;
         enemy = new Enemy(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
         board.addEnemy(enemy);
@@ -326,7 +326,18 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterAddingPlayerAndAsteroidInTheSamePlacePlayerLosesLife(){
+    public void afterAddingPlayerAndEnemyInDifferentPlacesNothingHappens() {
+        int originalLifeCount = player.lives;
+        enemy = new Enemy(Board.PLAYER_SPAWN_X + 200, Board.PLAYER_SPAWN_Y + 200);
+        board.addEnemy(enemy);
+        controller.checkCollisions();
+
+        int delta = originalLifeCount - player.lives;
+        assertEquals(0, delta);
+    }
+
+    @Test
+    public void afterAddingPlayerAndAsteroidInTheSamePlacePlayerLosesLife() {
         int originalLifeCount = player.lives;
         asteroid = new Asteroid(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
         board.addAsteroid(asteroid);
@@ -337,7 +348,18 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterAddingPlayerAndEnemyMissileInTheSamePlacePlayerLosesLife(){
+    public void afterAddingPlayerAndAsteroidInDifferentPlacesNothingHappens() {
+        int originalLifeCount = player.lives;
+        asteroid = new Asteroid(Board.PLAYER_SPAWN_X + 200, Board.PLAYER_SPAWN_Y + 200);
+        board.addAsteroid(asteroid);
+        controller.checkCollisions();
+
+        int delta = originalLifeCount - player.lives;
+        assertEquals(0, delta);
+    }
+
+    @Test
+    public void afterAddingPlayerAndEnemyMissileInTheSamePlacePlayerLosesLife() {
         int originalLifeCount = player.lives;
         enemyMissile = new EnemyMissile(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
         board.addEnemyMissile(enemyMissile);
@@ -348,12 +370,32 @@ public class ControllerTest {
     }
 
     @Test
-    public void afterAddingPlayerAndBonusInTheSamePlacePlayerGetsBonus(){
+    public void afterAddingPlayerAndEnemyMissileInDifferentPlacesNothingHappens() {
+        int originalLifeCount = player.lives;
+        enemyMissile = new EnemyMissile(Board.PLAYER_SPAWN_X + 200, Board.PLAYER_SPAWN_Y + 200);
+        board.addEnemyMissile(enemyMissile);
+        controller.checkCollisions();
+
+        int delta = originalLifeCount - player.lives;
+        assertEquals(0, delta);
+    }
+
+    @Test
+    public void afterAddingPlayerAndBonusInTheSamePlacePlayerGetsBonus() {
         bonus = new Bonus(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y, BonusType.shield);
         board.addBonus(bonus);
         controller.checkCollisions();
 
-        assertEquals(true, player.isShielded());
+        assertTrue(player.isShielded());
+    }
+
+    @Test
+    public void afterAddingPlayerAndBonusInDifferentPlacesNothingHappens() {
+        bonus = new Bonus(Board.PLAYER_SPAWN_X + 200, Board.PLAYER_SPAWN_Y + 200, BonusType.shield);
+        board.addBonus(bonus);
+        controller.checkCollisions();
+
+        assertFalse(player.isShielded());
     }
 
 }

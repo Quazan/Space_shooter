@@ -7,11 +7,11 @@ import org.junit.Test;
 
 
 public class BoardTest {
-    Board board;
-    Asteroid asteroid;
-    Enemy enemy;
-    EnemyMissile enemyMissile;
-    Bonus bonus;
+    private Board board;
+    private Asteroid asteroid;
+    private Enemy enemy;
+    private EnemyMissile enemyMissile;
+    private Bonus bonus;
 
     @Before
     public void setUP() {
