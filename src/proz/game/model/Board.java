@@ -20,11 +20,7 @@ public class Board {
     }
 
     private void initBoard(){
-        player = new Player(PLAYER_SPAWN_X, PLAYER_SPAWN_Y);
-        asteroids = new ArrayList<>();
-        enemies = new ArrayList<>();
-        bonuses = new ArrayList<>();
-        enemyMissiles = new ArrayList<>();
+        resetBoard();
     }
 
     public Player getPlayer(){
@@ -50,4 +46,12 @@ public class Board {
     public void addBonus(Bonus b) {bonuses.add(b);}
 
     public void addEnemyMissile(EnemyMissile em) { enemyMissiles.add(em);}
+
+    public void resetBoard(){
+        player = new Player(PLAYER_SPAWN_X, PLAYER_SPAWN_Y);
+        asteroids = new ArrayList<>();
+        enemies = new ArrayList<>();
+        bonuses = new ArrayList<>();
+        enemyMissiles = new ArrayList<>();
+    }
 }

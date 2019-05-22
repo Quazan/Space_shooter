@@ -51,9 +51,6 @@ public class SwingView extends JPanel implements View{
 
     @Override
     protected void paintComponent(Graphics g1){
-        //trzeba trochę ifowania w zależności od stanu controllera
-        //pauza
-        //game over
         Graphics2D g = (Graphics2D) g1;
         fillBackground(g);
 
@@ -104,15 +101,14 @@ public class SwingView extends JPanel implements View{
         JButton button = new JButton("Play again");
         button.setBounds(getHeight()/2, getWidth()/2, ij.getIconWidth(), ij.getIconHeight());
         SwingView view = this;
+
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 view.remove(button);
-                Board b = new Board();
-                Controller c = new Controller(b);
-                setController(c);
-                setModel(b);
-                controller.setView(view);
+                board.resetBoard();
+                setModel(board);
+                controller.resetController(board);
             }
         });
         this.add(button);
@@ -158,6 +154,7 @@ public class SwingView extends JPanel implements View{
             }
             else {
                 controller.deleteAsteroid(asteroid);
+                i--;
             }
         }
     }
@@ -173,6 +170,7 @@ public class SwingView extends JPanel implements View{
             }
             else {
                 controller.deleteEnemy(enemy);
+                i--;
             }
         }
     }
@@ -190,6 +188,7 @@ public class SwingView extends JPanel implements View{
             }
             else{
                 controller.deleteMissile(missile);
+                i--;
             }
         }
 
@@ -202,6 +201,7 @@ public class SwingView extends JPanel implements View{
             }
             else{
                 controller.deleteEnemyMissile(enemyMissile);
+                i--;
             }
         }
     }
@@ -217,6 +217,7 @@ public class SwingView extends JPanel implements View{
             }
             else{
                 controller.deleteBonus(bonus);
+                i--;
             }
         }
     }

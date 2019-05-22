@@ -34,8 +34,13 @@ public class Controller {
     private final int START_Y_FOR_OBJECTS = -60;
     private final int LAST_Y = 30;
     final int SCORE_DELTA = 100;
+    private final int POWER_UP_TIME = 5000;
 
     public Controller(Board b){
+        resetController(b);
+    }
+
+    public void resetController(Board b){
         board = b;
         player = board.getPlayer();
         pause = false;
@@ -147,35 +152,30 @@ public class Controller {
         return true;
     }
 
-    private void checkCollisions(){
-        Rectangle playerBounds;
+    private void resetReloadTimer(){
+        buffTimer.cancel();
+        buffTimer = new Timer();
+    }
 
-        if(player.isShielded()){
-            playerBounds = player.getShieldBounds();
-        }
-        else
-        {
-            playerBounds = player.getBounds();
-        }
-
-
+    private void checkPlayerBonusCollision(Rectangle playerBounds){
         for(Bonus bonus : board.getBonuses()){
             Rectangle bonusBounds = bonus.getBounds();
 
             if(playerBounds.intersects(bonusBounds)){
                 if(bonus.getType().equals(BonusType.power_UP)){
-                    if(player.isPoweredUp()){
-                        buffTimer.cancel();
-                        buffTimer = new Timer();
+                    if(player.isPoweredUp()) {
+                        resetReloadTimer();
                     }
 
-                    buffTimer.schedule(new PowerOff(), 5000);
+                    buffTimer.schedule(new PowerOff(), POWER_UP_TIME);
                 }
                 player.setBonus(bonus);
                 bonus.setVisible(false);
             }
         }
+    }
 
+    private void checkPlayerEnemyMissileCollision(Rectangle playerBounds){
         for(EnemyMissile em : board.getEnemyMissiles()){
             Rectangle missileBounds = em.getBounds();
 
@@ -184,7 +184,9 @@ public class Controller {
                 em.setVisible(false);
             }
         }
+    }
 
+    private void checkAsteroidsCollision(Rectangle playerBounds){
         for(Asteroid asteroid : board.getAsteroids()){
             Rectangle asteroidBounds = asteroid.getBounds();
 
@@ -212,7 +214,9 @@ public class Controller {
                 }
             }
         }
+    }
 
+    private void checkEnemyCollision(Rectangle playerBounds){
         for(Enemy enemy : board.getEnemies()){
             Rectangle enemyBounds = enemy.getBounds();
 
@@ -231,6 +235,26 @@ public class Controller {
                 }
             }
         }
+    }
+
+    private void checkCollisions(){
+        Rectangle playerBounds;
+
+        if(player.isShielded()){
+            playerBounds = player.getShieldBounds();
+        }
+        else
+        {
+            playerBounds = player.getBounds();
+        }
+
+        checkPlayerBonusCollision(playerBounds);
+
+        checkPlayerEnemyMissileCollision(playerBounds);
+
+        checkAsteroidsCollision(playerBounds);
+
+        checkEnemyCollision(playerBounds);
     }
 
     private boolean checkReload(){
@@ -267,8 +291,8 @@ public class Controller {
         @Override
         public void run(){
             int chance = generateNumber(100);
-            //if(chance < 5) randomAsteroid();
-            //if(chance > 95) randomEnemy();
+            if(chance < 5) randomAsteroid();
+            if(chance > 95) randomEnemy();
 
             try{
                 keyIterator();
@@ -344,7 +368,6 @@ public class Controller {
     }
 
     private void keyIterator(){
-        //System.out.println(pressedKeys);
         for(Integer keyCode : pressedKeys.keySet()){
             if (keyCode == KeyEvent.VK_LEFT) {
                 if(pressedKeys.containsKey(KeyEvent.VK_RIGHT)) {
