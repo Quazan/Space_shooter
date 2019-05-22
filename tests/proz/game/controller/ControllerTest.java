@@ -8,6 +8,9 @@ import org.junit.Test;
 import proz.game.model.*;
 import proz.game.view.*;
 
+import java.awt.event.KeyEvent;
+import java.sql.Timestamp;
+
 public class ControllerTest {
 
     Controller controller;
@@ -46,8 +49,6 @@ public class ControllerTest {
             return 600;
         }
     }
-
-    ;
 
     @Before
     public void setUp() {
@@ -177,7 +178,7 @@ public class ControllerTest {
         final int originalY = asteroid.y;
         controller.updateAsteroid(asteroid);
         int delta = asteroid.y - originalY;
-        assertEquals(controller.ASTEROID_MOVE_DELTA, delta);
+        assertEquals(Controller.ASTEROID_MOVE_DELTA, delta);
     }
 
     @Test
@@ -186,7 +187,7 @@ public class ControllerTest {
         final int originalY = enemy.y;
         controller.updateEnemy(enemy);
         int delta = enemy.y - originalY;
-        assertEquals(controller.ENEMY_MOVE_DELTA, delta);
+        assertEquals(Controller.ENEMY_MOVE_DELTA, delta);
     }
 
     @Test
@@ -195,7 +196,7 @@ public class ControllerTest {
         final int originalY = missile.y;
         controller.updateMissile(missile);
         int delta = missile.y - originalY;
-        assertEquals(-controller.PLAYER_MISSILE_MOVE_DELTA, delta);
+        assertEquals(-Controller.PLAYER_MISSILE_MOVE_DELTA, delta);
     }
 
     @Test
@@ -204,7 +205,7 @@ public class ControllerTest {
         final int originalY = enemyMissile.y;
         controller.updateEnemyMissile(enemyMissile);
         int delta = enemyMissile.y - originalY;
-        assertEquals(controller.ENEMY_MISSILE_MOVE_DELTA, delta);
+        assertEquals(Controller.ENEMY_MISSILE_MOVE_DELTA, delta);
     }
 
     @Test
@@ -213,7 +214,7 @@ public class ControllerTest {
         final int originalY = bonus.y;
         controller.updateBonus(bonus);
         int delta = bonus.y - originalY;
-        assertEquals(controller.BONUS_MOVE_DELTA, delta);
+        assertEquals(Controller.BONUS_MOVE_DELTA, delta);
     }
 
     @Test
@@ -222,7 +223,137 @@ public class ControllerTest {
         controller.addScore();
         int delta = player.score - originalScore;
 
-        assertEquals(controller.SCORE_DELTA, delta);
+        assertEquals(Controller.SCORE_DELTA, delta);
+    }
+
+    @Test
+    public void afterDeletingAsteroidIsDeleted() {
+        asteroid = new Asteroid(0, 0);
+        board.addAsteroid(asteroid);
+        controller.deleteAsteroid(asteroid);
+
+        assertEquals(0, board.getAsteroids().size());
+    }
+
+    @Test
+    public void afterDeletingEnemyIsDeleted() {
+        enemy = new Enemy(0, 0);
+        board.addEnemy(enemy);
+        controller.deleteEnemy(enemy);
+
+        assertEquals(0, board.getEnemies().size());
+    }
+
+    @Test
+    public void afterDeletingMissileIsDeleted() {
+        missile = new Missile(0, 0);
+        player.addMissile(missile);
+        controller.deleteMissile(missile);
+
+        assertEquals(0, player.getMissiles().size());
+    }
+
+    @Test
+    public void afterDeletingEnemyMissileIsDeleted() {
+        enemyMissile = new EnemyMissile(0, 0);
+        board.addEnemyMissile(enemyMissile);
+        controller.deleteEnemyMissile(enemyMissile);
+
+        assertEquals(0, board.getEnemyMissiles().size());
+    }
+
+    @Test
+    public void afterDeletingBonusIsDeleted() {
+        bonus = new Bonus(0, 0, BonusType.shield);
+        board.addBonus(bonus);
+        controller.deleteBonus(bonus);
+
+        assertEquals(0, board.getBonuses().size());
+    }
+
+    @Test
+    public void afterAddingKeyToMapKeyIsAdded() {
+        controller.addKey(KeyEvent.VK_UP, new Timestamp(System.currentTimeMillis()));
+
+        assertEquals(1, controller.getPressedKeys().size());
+    }
+
+    @Test
+    public void afterDeletingKeyFromMapKeyIsEmpty() {
+        controller.addKey(KeyEvent.VK_UP, new Timestamp(System.currentTimeMillis()));
+        controller.removeKey(KeyEvent.VK_UP);
+
+        assertEquals(0, controller.getPressedKeys().size());
+    }
+
+    @Test
+    public void generatedNumberIsLowerThanBound() {
+        int generatedNumber = controller.generateNumber(1);
+
+        assertNotEquals(1, generatedNumber);
+    }
+
+    @Test
+    public void afterAddingKeyToMapPlayerMoves(){
+        final int originalY = player.y;
+        controller.addKey(KeyEvent.VK_UP, new Timestamp(System.currentTimeMillis()));
+        controller.keyIterator();
+        int delta = originalY - player.y;
+
+        assertEquals(Controller.VERTICAL_MOVE_DELTA, delta);
+    }
+
+    @Test
+    public void afterAddingTwoContraryKeysToMapPlayerMovesToTheLatestKey(){
+        final int originalY = player.y;
+        controller.addKey(KeyEvent.VK_UP, new Timestamp(System.currentTimeMillis()));
+        controller.addKey(KeyEvent.VK_DOWN, new Timestamp(System.currentTimeMillis()+10));
+        controller.keyIterator();
+        int delta = originalY - player.y;
+
+        assertEquals(-Controller.VERTICAL_MOVE_DELTA, delta);
+    }
+
+    @Test
+    public void afterAddingPlayerAndEnemyInTheSamePlacePlayerLosesLife(){
+        int originalLifeCount = player.lives;
+        enemy = new Enemy(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
+        board.addEnemy(enemy);
+        controller.checkCollisions();
+
+        int delta = originalLifeCount - player.lives;
+        assertEquals(1, delta);
+    }
+
+    @Test
+    public void afterAddingPlayerAndAsteroidInTheSamePlacePlayerLosesLife(){
+        int originalLifeCount = player.lives;
+        asteroid = new Asteroid(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
+        board.addAsteroid(asteroid);
+        controller.checkCollisions();
+
+        int delta = originalLifeCount - player.lives;
+        assertEquals(1, delta);
+    }
+
+    @Test
+    public void afterAddingPlayerAndEnemyMissileInTheSamePlacePlayerLosesLife(){
+        int originalLifeCount = player.lives;
+        enemyMissile = new EnemyMissile(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
+        board.addEnemyMissile(enemyMissile);
+        controller.checkCollisions();
+
+        int delta = originalLifeCount - player.lives;
+        assertEquals(1, delta);
+    }
+
+    @Test
+    public void afterAddingPlayerAndBonusInTheSamePlacePlayerGetsBonus(){
+        bonus = new Bonus(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y, BonusType.shield);
+        board.addBonus(bonus);
+        controller.checkCollisions();
+
+        assertEquals(true, player.isShielded());
     }
 
 }

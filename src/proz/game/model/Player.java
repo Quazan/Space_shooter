@@ -20,7 +20,7 @@ public class Player extends GameObject {
     Player(Integer startX, Integer startY) {
         super(startX, startY);
         reload = false;
-        shield = true;
+        shield = false;
         powerUp = false;
         missiles = new ArrayList<>();
 

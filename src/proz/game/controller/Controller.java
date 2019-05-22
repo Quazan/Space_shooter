@@ -19,22 +19,22 @@ public class Controller {
     private Timer buffTimer;
     private Boolean pause;
     private Random rand;
-    public HashMap<Integer, Timestamp> pressedKeys;
+    private HashMap<Integer, Timestamp> pressedKeys;
 
     static final int HORIZONTAL_MOVE_DELTA = 10;
     static final int VERTICAL_MOVE_DELTA = 10;
-    private final int INITIAL_DELAY = 100;
-    private final int PERIOD_INTERVAL = 25;
-    private final int RELOAD_TIME = 200;
-    final int ENEMY_MOVE_DELTA = 2;
-    final int ASTEROID_MOVE_DELTA = 2;
-    final int PLAYER_MISSILE_MOVE_DELTA = 8;
-    final int ENEMY_MISSILE_MOVE_DELTA = 6;
-    final int BONUS_MOVE_DELTA = 4;
-    private final int START_Y_FOR_OBJECTS = -60;
-    private final int LAST_Y = 30;
-    final int SCORE_DELTA = 100;
-    private final int POWER_UP_TIME = 5000;
+    static final int INITIAL_DELAY = 100;
+    static final int PERIOD_INTERVAL = 25;
+    static final int RELOAD_TIME = 200;
+    static final int ENEMY_MOVE_DELTA = 2;
+    static final int ASTEROID_MOVE_DELTA = 2;
+    static final int PLAYER_MISSILE_MOVE_DELTA = 8;
+    static final int ENEMY_MISSILE_MOVE_DELTA = 6;
+    static final int BONUS_MOVE_DELTA = 4;
+    static final int START_Y_FOR_OBJECTS = -60;
+    static final int LAST_Y = 30;
+    static final int SCORE_DELTA = 100;
+    static final int POWER_UP_TIME = 5000;
 
     public Controller(Board b) {
         resetController(b);
@@ -238,7 +238,7 @@ public class Controller {
         }
     }
 
-    private void checkCollisions() {
+    void checkCollisions() {
         Rectangle playerBounds;
 
         if (player.isShielded()) {
@@ -376,7 +376,7 @@ public class Controller {
         return true;
     }
 
-    private void keyIterator() {
+    void keyIterator() {
         for (Integer keyCode : pressedKeys.keySet()) {
             if (keyCode == KeyEvent.VK_LEFT) {
                 if (pressedKeys.containsKey(KeyEvent.VK_RIGHT)) {
@@ -457,7 +457,7 @@ public class Controller {
         player.score += SCORE_DELTA;
     }
 
-    private Integer generateNumber(Integer bound) {
+    Integer generateNumber(Integer bound) {
         return rand.nextInt(bound);
     }
 
@@ -493,6 +493,10 @@ public class Controller {
 
     public void removeKey(Integer keyCode) {
         pressedKeys.remove(keyCode);
+    }
+
+    HashMap<Integer, Timestamp> getPressedKeys(){
+        return pressedKeys;
     }
 }
 

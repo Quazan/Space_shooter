@@ -16,6 +16,8 @@ public class SwingView extends JPanel implements View {
     private Player player;
     private Controller controller;
     private Image imageBackground;
+    private boolean pause = false;
+    private boolean endGame = false;
 
     public SwingView() {
         setSize(800, 600);
@@ -66,7 +68,7 @@ public class SwingView extends JPanel implements View {
 
 
         if (controller.isPaused()) {
-            printPauseMenu();
+            printPauseMenu(g);
         }
 
         Toolkit.getDefaultToolkit().sync();
@@ -101,18 +103,21 @@ public class SwingView extends JPanel implements View {
 
     private void paintGameOver(Graphics2D g) {
 
-        ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
-        JButton button = new JButton("Play again");
-        button.setBounds(getHeight() / 2, getWidth() / 2, ij.getIconWidth(), ij.getIconHeight());
+        if(!endGame){
+            endGame = true;
+            ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
+            JButton button = new JButton("Play again");
+            button.setBounds(getHeight() / 2, getWidth() / 2, ij.getIconWidth(), ij.getIconHeight());
 
-        SwingView view = this;
-        button.addActionListener(e -> {
-            view.remove(button);
-            resetGame();
-        });
+            SwingView view = this;
+            button.addActionListener(e -> {
+                endGame = false;
+                view.remove(button);
+                resetGame();
+            });
 
-        this.add(button);
-        this.setVisible(true);
+            this.add(button);
+        }
 
         ImageIcon ii = new ImageIcon("assets\\PNG\\game_over_1.png");
         g.drawImage(ii.getImage(), 80, 0, null);
@@ -120,18 +125,25 @@ public class SwingView extends JPanel implements View {
         paintScore(g);
     }
 
-    private void printPauseMenu() {
-        ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
-        JButton but = new JButton("Continue");
-        but.setBounds(getHeight() / 2, getWidth() / 2, ij.getIconWidth() - 15, ij.getIconHeight());
+    private void printPauseMenu(Graphics2D g) {
+        if(!pause){
+            pause = true;
+            ImageIcon ij = new ImageIcon("assets\\PNG\\UI\\buttonBlue.png");
+            JButton but = new JButton("Continue");
+            but.setBounds(getHeight() / 2, getWidth() / 2, ij.getIconWidth() - 15, ij.getIconHeight());
 
-        SwingView view = this;
-        but.addActionListener(e -> {
-            view.remove(but);
-            controller.start();
-        });
+            SwingView view = this;
+            but.addActionListener(e -> {
+                pause = false;
+                view.remove(but);
+                controller.start();
+            });
 
-        this.add(but);
+            this.add(but);
+        }
+
+        ImageIcon ii = new ImageIcon("assets\\PNG\\UI\\PauseButton.png");
+        g.drawImage(ii.getImage(), 0, 0, this);
     }
 
     private void paintScore(Graphics2D g) {

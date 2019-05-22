@@ -12,8 +12,8 @@ public class Board {
     public List<Bonus> bonuses;
     public List<EnemyMissile> enemyMissiles;
 
-    private final int PLAYER_SPAWN_X = 300;
-    private final int PLAYER_SPAWN_Y = 450;
+    public static final int PLAYER_SPAWN_X = 300;
+    public static final int PLAYER_SPAWN_Y = 450;
 
     public Board() {
         initBoard();
