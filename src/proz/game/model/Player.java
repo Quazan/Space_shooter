@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player extends GameObject {
-    public Integer score = 0;
-    public Integer lives = 3;
+    private Integer score = 0;
+    private Integer lives = 3;
 
     private Boolean reload;
     private Boolean shield;
@@ -15,7 +15,7 @@ public class Player extends GameObject {
 
     private ImageIcon shieldImage;
 
-    public List<Missile> missiles;
+    private List<Missile> missiles;
 
     Player(Integer startX, Integer startY) {
         super(startX, startY);
@@ -47,6 +47,10 @@ public class Player extends GameObject {
         missiles.add(m);
     }
 
+    public void removeMissile(Missile missile){
+        missiles.remove(missile);
+    }
+
     public void takeDamage() {
         if (shield) {
             shield = false;
@@ -57,6 +61,10 @@ public class Player extends GameObject {
         if (lives <= 0) {
             setVisible(false);
         }
+    }
+
+    public Integer getLives(){
+        return lives;
     }
 
     public void setBonus(Bonus bonus) {
@@ -94,6 +102,14 @@ public class Player extends GameObject {
 
     public Image getShieldImage() {
         return shieldImage.getImage();
+    }
+
+    public Integer getScore(){
+        return score;
+    }
+
+    public void addScore(Integer value){
+        score += value;
     }
 
     private void setShieldImage() {

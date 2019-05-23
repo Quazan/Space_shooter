@@ -7,10 +7,10 @@ public class Board {
 
     private Player player;
 
-    public List<Asteroid> asteroids;
-    public List<Enemy> enemies;
-    public List<Bonus> bonuses;
-    public List<EnemyMissile> enemyMissiles;
+    private List<Asteroid> asteroids;
+    private List<Enemy> enemies;
+    private List<Bonus> bonuses;
+    private List<EnemyMissile> enemyMissiles;
 
     public static final int PLAYER_SPAWN_X = 300;
     public static final int PLAYER_SPAWN_Y = 450;
@@ -57,6 +57,22 @@ public class Board {
 
     public void addEnemyMissile(EnemyMissile em) {
         enemyMissiles.add(em);
+    }
+
+    public void removeAsteroid(Asteroid asteroid){
+        asteroids.remove(asteroid);
+    }
+
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
+
+    public void removeBonus(Bonus bonus){
+        bonuses.remove(bonus);
+    }
+
+    public void removeEnemyMissile(EnemyMissile enemyMissile){
+        enemyMissiles.remove(enemyMissile);
     }
 
     public void resetBoard() {

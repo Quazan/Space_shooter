@@ -3,7 +3,7 @@ package proz.game.model;
 import java.awt.*;
 
 public class Bonus extends GameObject {
-    BonusType type;
+    private BonusType type;
 
     public Bonus(Integer startX, Integer startY, BonusType bt) {
         super(startX, startY);

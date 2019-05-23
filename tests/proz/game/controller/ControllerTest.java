@@ -219,9 +219,9 @@ public class ControllerTest {
 
     @Test
     public void afterAddingScorePlayerScoreIncreases() {
-        final int originalScore = player.score;
+        final int originalScore = player.getScore();
         controller.addScore();
-        int delta = player.score - originalScore;
+        int delta = player.getScore() - originalScore;
 
         assertEquals(Controller.SCORE_DELTA, delta);
     }
@@ -288,9 +288,10 @@ public class ControllerTest {
 
     @Test
     public void generatedNumberIsLowerThanBound() {
-        int generatedNumber = controller.generateNumber(1);
+        final int bound = 1;
+        int generatedNumber = controller.generateNumber(bound);
 
-        assertNotEquals(1, generatedNumber);
+        assertNotEquals(bound, generatedNumber);
     }
 
     @Test
@@ -316,67 +317,67 @@ public class ControllerTest {
 
     @Test
     public void afterAddingPlayerAndEnemyInTheSamePlacePlayerLosesLife() {
-        int originalLifeCount = player.lives;
+        int originalLifeCount = player.getLives();
         enemy = new Enemy(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
         board.addEnemy(enemy);
         controller.checkCollisions();
 
-        int delta = originalLifeCount - player.lives;
+        int delta = originalLifeCount - player.getLives();
         assertEquals(1, delta);
     }
 
     @Test
     public void afterAddingPlayerAndEnemyInDifferentPlacesNothingHappens() {
-        int originalLifeCount = player.lives;
+        int originalLifeCount = player.getLives();
         enemy = new Enemy(Board.PLAYER_SPAWN_X + 200, Board.PLAYER_SPAWN_Y + 200);
         board.addEnemy(enemy);
         controller.checkCollisions();
 
-        int delta = originalLifeCount - player.lives;
+        int delta = originalLifeCount - player.getLives();
         assertEquals(0, delta);
     }
 
     @Test
     public void afterAddingPlayerAndAsteroidInTheSamePlacePlayerLosesLife() {
-        int originalLifeCount = player.lives;
+        int originalLifeCount = player.getLives();
         asteroid = new Asteroid(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
         board.addAsteroid(asteroid);
         controller.checkCollisions();
 
-        int delta = originalLifeCount - player.lives;
+        int delta = originalLifeCount - player.getLives();
         assertEquals(1, delta);
     }
 
     @Test
     public void afterAddingPlayerAndAsteroidInDifferentPlacesNothingHappens() {
-        int originalLifeCount = player.lives;
+        int originalLifeCount = player.getLives();
         asteroid = new Asteroid(Board.PLAYER_SPAWN_X + 200, Board.PLAYER_SPAWN_Y + 200);
         board.addAsteroid(asteroid);
         controller.checkCollisions();
 
-        int delta = originalLifeCount - player.lives;
+        int delta = originalLifeCount - player.getLives();
         assertEquals(0, delta);
     }
 
     @Test
     public void afterAddingPlayerAndEnemyMissileInTheSamePlacePlayerLosesLife() {
-        int originalLifeCount = player.lives;
+        int originalLifeCount = player.getLives();
         enemyMissile = new EnemyMissile(Board.PLAYER_SPAWN_X, Board.PLAYER_SPAWN_Y);
         board.addEnemyMissile(enemyMissile);
         controller.checkCollisions();
 
-        int delta = originalLifeCount - player.lives;
+        int delta = originalLifeCount - player.getLives();
         assertEquals(1, delta);
     }
 
     @Test
     public void afterAddingPlayerAndEnemyMissileInDifferentPlacesNothingHappens() {
-        int originalLifeCount = player.lives;
+        int originalLifeCount = player.getLives();
         enemyMissile = new EnemyMissile(Board.PLAYER_SPAWN_X + 200, Board.PLAYER_SPAWN_Y + 200);
         board.addEnemyMissile(enemyMissile);
         controller.checkCollisions();
 
-        int delta = originalLifeCount - player.lives;
+        int delta = originalLifeCount - player.getLives();
         assertEquals(0, delta);
     }
 

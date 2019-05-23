@@ -81,7 +81,7 @@ public class SwingView extends JPanel implements View {
         }
 
         ImageIcon ii;
-        switch (player.lives) {
+        switch (player.getLives()) {
             case 2:
                 ii = new ImageIcon("assets\\PNG\\Damage\\playerShip2_damage1.png");
                 g.drawImage(ii.getImage(), player.x, player.y, this);
@@ -145,7 +145,7 @@ public class SwingView extends JPanel implements View {
     private void paintScore(Graphics2D g) {
         g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         g.setColor(Color.white);
-        g.drawString("Score: " + player.score.toString(), 0, 20);
+        g.drawString("Score: " + player.getScore().toString(), 0, 20);
     }
 
     private void paintAsteroid(Graphics2D g) {
@@ -234,10 +234,10 @@ public class SwingView extends JPanel implements View {
 
     private void paintHUD(Graphics2D g) {
         ImageIcon ii = new ImageIcon("assets\\PNG\\UI\\playerLife2_red.png");
-        
+
         int x = ii.getIconWidth();
         int off = 20;
-        for (int i = 0; i < player.lives; i++) {
+        for (int i = 0; i < player.getLives(); i++) {
             g.drawImage(ii.getImage(), off, getHeight() - 50, this);
             off += x + 10;
         }

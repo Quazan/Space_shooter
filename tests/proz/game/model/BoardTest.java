@@ -31,7 +31,16 @@ public class BoardTest {
         asteroid = new Asteroid(0, 0);
         board.addAsteroid(asteroid);
         final int asteroidCount = 1;
-        assertEquals(asteroidCount, board.asteroids.size());
+        assertEquals(asteroidCount, board.getAsteroids().size());
+    }
+
+    @Test
+    public void afterAddingAsteroidAndThenRemovingItThereIsNoMoreAsteroids() {
+        asteroid = new Asteroid(0, 0);
+        board.addAsteroid(asteroid);
+        board.removeAsteroid(asteroid);
+        final int asteroidCount = 0;
+        assertEquals(asteroidCount, board.getAsteroids().size());
     }
 
     @Test
@@ -39,7 +48,16 @@ public class BoardTest {
         enemy = new Enemy(0, 0);
         board.addEnemy(enemy);
         final int enemiesCount = 1;
-        assertEquals(enemiesCount, board.enemies.size());
+        assertEquals(enemiesCount, board.getEnemies().size());
+    }
+
+    @Test
+    public void afterAddingEnemyAndThenRemovingItThereIsNoMoreEnemies() {
+        enemy = new Enemy(0, 0);
+        board.addEnemy(enemy);
+        board.removeEnemy(enemy);
+        final int enemiesCount = 0;
+        assertEquals(enemiesCount, board.getEnemies().size());
     }
 
     @Test
@@ -47,7 +65,16 @@ public class BoardTest {
         enemyMissile = new EnemyMissile(0, 0);
         board.addEnemyMissile(enemyMissile);
         final int enemyMissilesCount = 1;
-        assertEquals(enemyMissilesCount, board.enemyMissiles.size());
+        assertEquals(enemyMissilesCount, board.getEnemyMissiles().size());
+    }
+
+    @Test
+    public void afterAddingEnemyMissileAndThenRemovingItThereIsNoMoreEnemyMissiles() {
+        enemyMissile = new EnemyMissile(0, 0);
+        board.addEnemyMissile(enemyMissile);
+        board.removeEnemyMissile(enemyMissile);
+        final int enemyMissilesCount = 0;
+        assertEquals(enemyMissilesCount, board.getEnemyMissiles().size());
     }
 
     @Test
@@ -55,6 +82,15 @@ public class BoardTest {
         bonus = new Bonus(0, 0, BonusType.power_UP);
         board.addBonus(bonus);
         final int bonusCount = 1;
-        assertEquals(bonusCount, board.bonuses.size());
+        assertEquals(bonusCount, board.getBonuses().size());
+    }
+
+    @Test
+    public void afterAddingBonusThenRemovingItThereIsNoMoreBonuses() {
+        bonus = new Bonus(0, 0, BonusType.power_UP);
+        board.addBonus(bonus);
+        board.removeBonus(bonus);
+        final int bonusCount = 0;
+        assertEquals(bonusCount, board.getBonuses().size());
     }
 }

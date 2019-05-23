@@ -16,9 +16,9 @@ public class PlayerTest {
 
     @Test
     public void afterTakingDamageHpIsReducedByOne() {
-        int originalLifeCount = player.lives;
+        int originalLifeCount = player.getLives();
         player.takeDamage();
-        int delta = originalLifeCount - player.lives;
+        int delta = originalLifeCount - player.getLives();
         assertEquals(1, delta);
     }
 
@@ -40,7 +40,7 @@ public class PlayerTest {
 
     @Test
     public void afterPlayerLivesBecomesZeroPlayerVisibilityIsSetToFalse() {
-        while (player.lives > 0) {
+        while (player.getLives() > 0) {
             player.takeDamage();
         }
 

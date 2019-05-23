@@ -7,12 +7,131 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6c6f25a2-66df-4f76-b242-d4f828f06ee1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/proz/game/model/PlayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/Space_shooter/proz/game/controller/ControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Space_shooter/proz/game/controller/ControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/Space_shooter.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/Space_shooter.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/kenvector_future.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/kenvector_future_thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/sfx_laser1.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/sfx_laser2.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/sfx_lose.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/sfx_shieldDown.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/sfx_shieldUp.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/sfx_twoTone.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Bonus/sfx_zap.ogg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beam0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beam1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beam2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beam3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beam4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beam5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beam6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beamLong1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/beamLong2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitBlue_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitBlue_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitBlue_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitBlue_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitBlue_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitBlue_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitBlue_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitBlue_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitGreen_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitGreen_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitGreen_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitGreen_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitGreen_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitGreen_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitGreen_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitGreen_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitRed_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitRed_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitRed_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitRed_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitRed_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitRed_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitRed_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitRed_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitYellow_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitYellow_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitYellow_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitYellow_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitYellow_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitYellow_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitYellow_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/cockpitYellow_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/engine1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/engine2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/engine3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/engine4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/engine5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun00.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun07.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun08.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun09.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/gun10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/scratch1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/scratch2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/scratch3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/turretBase_big.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/turretBase_small.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingBlue_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingBlue_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingBlue_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingBlue_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingBlue_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingBlue_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingBlue_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingBlue_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingGreen_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingGreen_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingGreen_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingGreen_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingGreen_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingGreen_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingGreen_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingGreen_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingRed_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingRed_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingRed_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingRed_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingRed_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingRed_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingRed_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingRed_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingYellow_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingYellow_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingYellow_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingYellow_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingYellow_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingYellow_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingYellow_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/PNG/Parts/wingYellow_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Spritesheet/sheet.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Spritesheet/sheet.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Vector/sheet.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/Vector/sheet.swf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/license.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Space_shooter_jar/assets/sample.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Space_shooter/proz/game/view/SwingView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/model/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/model/Asteroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/model/Bonus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/model/Bonus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/model/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/model/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/model/GameMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/model/GameMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proz/game/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/model/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/proz/game/view/SwingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/proz/game/view/SwingView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/proz/game/controller/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/proz/game/controller/ControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/proz/game/model/BoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/proz/game/model/BoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/proz/game/model/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/proz/game/model/PlayerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,38 +146,144 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/proz/game/model/Asteroid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/proz/game/view/SwingView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="243" column="8" selection-start-line="243" selection-start-column="8" selection-end-line="243" selection-end-column="8" />
+            <state relative-caret-position="183">
+              <caret line="239" column="45" selection-start-line="239" selection-start-column="45" selection-end-line="239" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8492#8493#0" expanded="true" />
-                <element signature="e#8517#8518#0" expanded="true" />
-                <element signature="e#8708#8709#0" expanded="true" />
-                <element signature="e#8743#8744#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/proz/game/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/model/BonusType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
-              <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+            <state relative-caret-position="85">
+              <caret line="5" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/model/Enemy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#166#167#0" expanded="true" />
+                <element signature="e#203#204#0" expanded="true" />
+                <element signature="e#248#249#0" expanded="true" />
+                <element signature="e#291#292#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/model/EnemyMissile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="e#224#225#0" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/model/GameObject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#435#436#0" expanded="true" />
+                <element signature="e#492#493#0" expanded="true" />
+                <element signature="e#536#537#0" expanded="true" />
+                <element signature="e#582#583#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/model/Missile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+              <folding>
+                <element signature="e#214#215#0" expanded="true" />
+                <element signature="e#257#258#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/model/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1240#1241#0" expanded="true" />
+                <element signature="e#1268#1269#0" expanded="true" />
+                <element signature="method#setBonus#0;class#Player#0" />
+                <element signature="e#1905#1906#0" expanded="true" />
+                <element signature="e#1932#1933#0" expanded="true" />
+                <element signature="e#2044#2045#0" expanded="true" />
+                <element signature="e#2083#2084#0" expanded="true" />
+                <element signature="e#1979#1980#0" expanded="true" />
+                <element signature="e#2009#2010#0" expanded="true" />
+                <element signature="method#setShieldImage#0;class#Player#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/proz/game/controller/Controller.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="183">
+              <caret line="478" column="29" selection-start-line="478" selection-start-column="29" selection-end-line="478" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#12557#12558#0" expanded="true" />
+                <element signature="e#12600#12601#0" expanded="true" />
+                <element signature="e#12740#12741#0" expanded="true" />
+                <element signature="e#12788#12789#0" expanded="true" />
+                <element signature="e#13152#13153#0" expanded="true" />
+                <element signature="e#13199#13200#0" expanded="true" />
+                <element signature="e#13243#13244#0" expanded="true" />
+                <element signature="e#13286#13287#0" expanded="true" />
+                <element signature="e#13341#13342#0" expanded="true" />
+                <element signature="e#13387#13388#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/proz/game/controller/ControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="41">
+              <caret line="379" column="57" selection-start-line="379" selection-start-column="57" selection-end-line="379" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/proz/game/model/PlayerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,6 +312,7 @@
       <find>setSize</find>
       <find>enemysho</find>
       <find>printpause</find>
+      <find>resi</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -106,22 +332,22 @@
         <option value="$PROJECT_DIR$/src/proz/game/model/Ufo.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/BonusType.java" />
         <option value="$PROJECT_DIR$/Resources/leaderboards.json" />
-        <option value="$PROJECT_DIR$/src/proz/game/model/Bonus.java" />
-        <option value="$PROJECT_DIR$/src/proz/game/model/Enemy.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/EnemyMissile.java" />
-        <option value="$PROJECT_DIR$/src/proz/game/model/GameMenu.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/GameObject.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/Missile.java" />
         <option value="$PROJECT_DIR$/src/proz/game/view/View.java" />
-        <option value="$PROJECT_DIR$/src/proz/game/model/Asteroid.java" />
         <option value="$PROJECT_DIR$/src/proz/game/Main.java" />
-        <option value="$PROJECT_DIR$/src/proz/game/controller/Controller.java" />
-        <option value="$PROJECT_DIR$/src/proz/game/model/Player.java" />
         <option value="$PROJECT_DIR$/src/proz/game/model/Board.java" />
+        <option value="$PROJECT_DIR$/tests/proz/game/model/BoardTest.java" />
+        <option value="$PROJECT_DIR$/src/proz/game/model/Asteroid.java" />
+        <option value="$PROJECT_DIR$/src/proz/game/model/Bonus.java" />
+        <option value="$PROJECT_DIR$/src/proz/game/model/Enemy.java" />
+        <option value="$PROJECT_DIR$/src/proz/game/model/GameMenu.java" />
         <option value="$PROJECT_DIR$/tests/proz/game/controller/ControllerTest.java" />
         <option value="$PROJECT_DIR$/tests/proz/game/model/PlayerTest.java" />
-        <option value="$PROJECT_DIR$/tests/proz/game/model/BoardTest.java" />
         <option value="$PROJECT_DIR$/src/proz/game/view/SwingView.java" />
+        <option value="$PROJECT_DIR$/src/proz/game/model/Player.java" />
+        <option value="$PROJECT_DIR$/src/proz/game/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -139,8 +365,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="288" />
-    <option name="y" value="-21" />
+    <option name="x" value="287" />
+    <option name="y" value="-22" />
     <option name="width" value="1700" />
     <option name="height" value="1030" />
   </component>
@@ -161,7 +387,31 @@
             <path>
               <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
               <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
+              <item name="out" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
+              <item name="Space_shooter_jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="META-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
@@ -192,6 +442,31 @@
             </path>
             <path>
               <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Space_shooter" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="game" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Space_shooter" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
@@ -207,8 +482,8 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/PNG/UI" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/out/artifacts/Space_shooter_jar" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -219,8 +494,8 @@
       <recent name="C:\Users\alexe\OneDrive - Politechnika Warszawska\Pulpit\Programowanie\Space_shooter\assets\PNG\UI" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\alexe\OneDrive - Politechnika Warszawska\Pulpit\Programowanie\Space_shooter\assets\PNG\UI" />
       <recent name="C:\Users\alexe\OneDrive - Politechnika Warszawska\Pulpit\Programowanie\Space_shooter\out\artifacts\Space_shooter_jar" />
+      <recent name="C:\Users\alexe\OneDrive - Politechnika Warszawska\Pulpit\Programowanie\Space_shooter\assets\PNG\UI" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -235,7 +510,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.ControllerTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="proz.game.Main" />
       <module name="Space_shooter" />
@@ -245,6 +520,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BoardTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Space_shooter" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="proz.game.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="proz.game.model" />
+      <option name="MAIN_CLASS_NAME" value="proz.game.model.BoardTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -280,21 +570,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Space_shooter" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="proz.game.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="proz.game.model" />
-      <option name="MAIN_CLASS_NAME" value="proz.game.model.PlayerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PlayerTest.afterPlayerLivesBecomesZeroPlayerVisibilityIsSetToFalse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Space_shooter" />
       <extension name="coverage">
@@ -313,11 +588,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ControllerTest" />
-        <item itemvalue="JUnit.PlayerTest.afterPlayerLivesBecomesZeroPlayerVisibilityIsSetToFalse" />
-        <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="JUnit.ControllerTest.afterAddingPlayerAndAsteroidInTheSamePlacePlayerLosesLife" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.BoardTest" />
+        <item itemvalue="JUnit.PlayerTest.afterPlayerLivesBecomesZeroPlayerVisibilityIsSetToFalse" />
       </list>
     </recent_temporary>
   </component>
@@ -335,12 +610,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ControllerTest - 2019.05.22 at 23h 51m 49s.xml">
-      <configuration name="ControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="PlayerTest - 2019.05.23 at 00h 00m 08s.xml">
-      <configuration name="PlayerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="PlayerTest - 2019.05.23 at 00h 00m 17s.xml">
       <configuration name="PlayerTest" configurationId="JUnit" />
     </history-entry>
@@ -365,6 +634,12 @@
     <history-entry file="ControllerTest - 2019.05.23 at 00h 10m 25s.xml">
       <configuration name="ControllerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="BoardTest - 2019.05.23 at 23h 51m 42s.xml">
+      <configuration name="BoardTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BoardTest - 2019.05.23 at 23h 55m 07s.xml">
+      <configuration name="BoardTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -379,7 +654,7 @@
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21271394" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21821515" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -387,8 +662,8 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32998884" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.1343785" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.32922733" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.13213886" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -532,20 +807,7 @@
     <entry file="file://$PROJECT_DIR$/assets/PNG/Damage/playerShip2_damage1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Resources/leaderboards.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Resources/leaderboards.json" />
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/HashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
@@ -573,67 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/BonusType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Bonus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-          <folding>
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#917#918#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/EnemyMissile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="15" selection-end-line="22" />
-          <folding>
-            <element signature="e#267#268#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/GameMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="1" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/GameObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="5" selection-end-line="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Missile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="12" column="15" selection-end-line="22" />
-          <folding>
-            <element signature="e#257#258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/proz/game/view/View.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -644,10 +845,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/PNG/UI/PauseButton.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/PNG/Parts/gun01.png" />
+    <entry file="file://$PROJECT_DIR$/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-225">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1205#1206#0" expanded="true" />
+            <element signature="e#1229#1230#0" expanded="true" />
+            <element signature="e#1295#1296#0" expanded="true" />
+            <element signature="e#1317#1318#0" expanded="true" />
+            <element signature="e#1372#1373#0" expanded="true" />
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#1474#1475#0" expanded="true" />
+            <element signature="e#1502#1503#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/proz/game/model/BoardTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Asteroid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Bonus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
+          <folding>
+            <element signature="e#291#292#0" expanded="true" />
+            <element signature="e#334#335#0" expanded="true" />
+            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#944#945#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/BonusType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/proz/game/model/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="9" selection-end-line="34" />
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="e#166#167#0" expanded="true" />
             <element signature="e#203#204#0" expanded="true" />
@@ -657,82 +937,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/PNG/UI/PauseButton.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/PNG/Parts/gun01.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Board.java">
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/GameMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-397">
-          <caret line="3" column="22" lean-forward="true" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#652#653#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#721#722#0" expanded="true" />
-            <element signature="e#751#752#0" expanded="true" />
-            <element signature="e#803#804#0" expanded="true" />
-            <element signature="e#839#840#0" expanded="true" />
-            <element signature="e#882#883#0" expanded="true" />
-            <element signature="e#914#915#0" expanded="true" />
-            <element signature="e#951#952#0" expanded="true" />
-            <element signature="e#981#982#0" expanded="true" />
-            <element signature="e#1018#1019#0" expanded="true" />
-            <element signature="e#1048#1049#0" expanded="true" />
-            <element signature="e#1100#1101#0" expanded="true" />
-            <element signature="e#1137#1138#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="49" column="29" selection-start-line="49" selection-start-column="29" selection-end-line="49" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#926#927#0" expanded="true" />
-            <element signature="method#setBonus#0;class#Player#0" />
-            <element signature="e#1497#1498#0" expanded="true" />
-            <element signature="e#1523#1524#0" expanded="true" />
-            <element signature="e#1559#1560#0" expanded="true" />
-            <element signature="e#1588#1589#0" expanded="true" />
-            <element signature="e#1693#1694#0" expanded="true" />
-            <element signature="e#1720#1721#0" expanded="true" />
-            <element signature="method#setShieldImage#0;class#Player#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3304">
-          <caret line="240" column="24" selection-start-line="240" selection-start-column="9" selection-end-line="240" selection-end-column="24" />
+        <state relative-caret-position="374">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/proz/game/model/BoardTest.java">
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/EnemyMissile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/GameObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <caret line="9" column="29" lean-forward="true" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#492#493#0" expanded="true" />
+            <element signature="e#536#537#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Missile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="5" lean-forward="true" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+          <folding>
+            <element signature="e#214#215#0" expanded="true" />
+            <element signature="e#257#258#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/proz/game/controller/ControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6528">
-          <caret line="390" lean-forward="true" selection-start-line="390" selection-end-line="390" />
+        <state relative-caret-position="41">
+          <caret line="379" column="57" selection-start-line="379" selection-start-column="57" selection-end-line="379" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -741,28 +995,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/proz/game/model/PlayerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Asteroid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/proz/game/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="111" lean-forward="true" selection-start-line="111" selection-end-line="111" />
+        <state relative-caret-position="330">
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -771,14 +1005,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/proz/game/view/SwingView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="243" column="8" selection-start-line="243" selection-start-column="8" selection-end-line="243" selection-end-column="8" />
+        <state relative-caret-position="183">
+          <caret line="239" column="45" selection-start-line="239" selection-start-column="45" selection-end-line="239" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8492#8493#0" expanded="true" />
-            <element signature="e#8517#8518#0" expanded="true" />
-            <element signature="e#8708#8709#0" expanded="true" />
-            <element signature="e#8743#8744#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/model/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="107" column="33" selection-start-line="107" selection-start-column="33" selection-end-line="107" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1240#1241#0" expanded="true" />
+            <element signature="e#1268#1269#0" expanded="true" />
+            <element signature="method#setBonus#0;class#Player#0" />
+            <element signature="e#1905#1906#0" expanded="true" />
+            <element signature="e#1932#1933#0" expanded="true" />
+            <element signature="e#2044#2045#0" expanded="true" />
+            <element signature="e#2083#2084#0" expanded="true" />
+            <element signature="e#1979#1980#0" expanded="true" />
+            <element signature="e#2009#2010#0" expanded="true" />
+            <element signature="method#setShieldImage#0;class#Player#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/proz/game/controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="478" column="29" selection-start-line="478" selection-start-column="29" selection-end-line="478" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#12557#12558#0" expanded="true" />
+            <element signature="e#12600#12601#0" expanded="true" />
+            <element signature="e#12740#12741#0" expanded="true" />
+            <element signature="e#12788#12789#0" expanded="true" />
+            <element signature="e#13152#13153#0" expanded="true" />
+            <element signature="e#13199#13200#0" expanded="true" />
+            <element signature="e#13243#13244#0" expanded="true" />
+            <element signature="e#13286#13287#0" expanded="true" />
+            <element signature="e#13341#13342#0" expanded="true" />
+            <element signature="e#13387#13388#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -794,6 +1064,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

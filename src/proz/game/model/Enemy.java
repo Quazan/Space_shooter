@@ -3,7 +3,7 @@ package proz.game.model;
 import java.awt.*;
 
 public class Enemy extends GameObject {
-    public Integer lives = 1;
+    private Integer lives = 1;
 
     public Enemy(Integer startX, Integer startY) {
         super(startX, startY);

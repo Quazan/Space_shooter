@@ -454,7 +454,7 @@ public class Controller {
     }
 
     void addScore() {
-        player.score += SCORE_DELTA;
+        player.addScore(SCORE_DELTA);
     }
 
     Integer generateNumber(Integer bound) {
@@ -462,7 +462,7 @@ public class Controller {
     }
 
     public void deleteAsteroid(Asteroid asteroid) {
-        board.asteroids.remove(asteroid);
+        board.removeAsteroid(asteroid);
     }
 
     public void deleteEnemy(Enemy enemy) {
@@ -472,19 +472,19 @@ public class Controller {
 
             randomBonus(startBonusX, startBonusY);
         }
-        board.enemies.remove(enemy);
+        board.removeEnemy(enemy);
     }
 
     public void deleteMissile(Missile missile) {
-        player.missiles.remove(missile);
+        player.removeMissile(missile);
     }
 
     public void deleteBonus(Bonus bonus) {
-        board.bonuses.remove(bonus);
+        board.removeBonus(bonus);
     }
 
     public void deleteEnemyMissile(EnemyMissile em) {
-        board.enemyMissiles.remove(em);
+        board.removeEnemyMissile(em);
     }
 
     public void addKey(Integer keyCode, Timestamp timestamp) {

@@ -59,11 +59,10 @@ public class Main {
         menuItem.addActionListener(menuListener);
 
         menuItem = new JMenuItem("Exit");
-        menu.add(menuItem);
-
         menuItem.setActionCommand("EXIT");
         menuItem.addActionListener(menuListener);
 
+        menu.add(menuItem);
         frame.setJMenuBar(menuBar);
     }
 
