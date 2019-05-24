@@ -376,44 +376,69 @@ public class Controller {
         return true;
     }
 
+    private void checkLeftKey(Integer keyCode) {
+        if (pressedKeys.containsKey(KeyEvent.VK_RIGHT)) {
+            if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_RIGHT))) {
+                moveLeft();
+            }
+        } else {
+            moveLeft();
+        }
+    }
+
+    private void checkRightKey(Integer keyCode) {
+        if (pressedKeys.containsKey(KeyEvent.VK_LEFT)) {
+            if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_LEFT))) {
+                moveRight();
+            }
+        } else {
+            moveRight();
+        }
+    }
+
+    private void checkUpKey(Integer keyCode) {
+        if (pressedKeys.containsKey(KeyEvent.VK_DOWN)) {
+            if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_DOWN))) {
+                moveUp();
+            }
+        } else {
+            moveUp();
+        }
+    }
+
+    private void checkDownKey(Integer keyCode) {
+        if (pressedKeys.containsKey(KeyEvent.VK_UP)) {
+            if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_UP))) {
+                moveDown();
+            }
+        } else {
+            moveDown();
+        }
+    }
+
     void keyIterator() {
         for (Integer keyCode : pressedKeys.keySet()) {
-            if (keyCode == KeyEvent.VK_LEFT) {
-                if (pressedKeys.containsKey(KeyEvent.VK_RIGHT)) {
-                    if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_RIGHT))) {
-                        moveLeft();
-                    }
-                } else {
-                    moveLeft();
-                }
-            } else if (keyCode == KeyEvent.VK_RIGHT) {
-                if (pressedKeys.containsKey(KeyEvent.VK_LEFT)) {
-                    if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_LEFT))) {
-                        moveRight();
-                    }
-                } else {
-                    moveRight();
-                }
-            } else if (keyCode == KeyEvent.VK_UP) {
-                if (pressedKeys.containsKey(KeyEvent.VK_DOWN)) {
-                    if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_DOWN))) {
-                        moveUp();
-                    }
-                } else {
-                    moveUp();
-                }
-            } else if (keyCode == KeyEvent.VK_DOWN) {
-                if (pressedKeys.containsKey(KeyEvent.VK_UP)) {
-                    if (pressedKeys.get(keyCode).after(pressedKeys.get(KeyEvent.VK_UP))) {
-                        moveDown();
-                    }
-                } else {
-                    moveDown();
-                }
-            } else if (keyCode == KeyEvent.VK_SPACE) {
-                fire();
-            } else if (keyCode == KeyEvent.VK_ESCAPE) {
-                pause();
+            switch (keyCode) {
+                case KeyEvent.VK_LEFT:
+                    checkLeftKey(keyCode);
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    checkRightKey(keyCode);
+                    break;
+                case KeyEvent.VK_UP:
+                    checkUpKey(keyCode);
+                    break;
+                case KeyEvent.VK_DOWN:
+                    checkDownKey(keyCode);
+                    break;
+                case KeyEvent.VK_SPACE:
+                    fire();
+                    break;
+                case KeyEvent.VK_ESCAPE:
+                    pause();
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -495,7 +520,7 @@ public class Controller {
         pressedKeys.remove(keyCode);
     }
 
-    HashMap<Integer, Timestamp> getPressedKeys(){
+    HashMap<Integer, Timestamp> getPressedKeys() {
         return pressedKeys;
     }
 }

@@ -35,7 +35,7 @@ public class Asteroid extends GameObject {
                 imageUrl = "assets\\PNG\\Meteors\\meteorGrey_med2.png";
                 break;
             case 2:
-                imageUrl = "assets\\PNG\\Meteors\\meteorBrown_med1.png";
+                imageUrl = "assets\\PNG\\Meteors\\meteorBrown_med3.png";
                 break;
             case 3:
                 imageUrl = "assets\\PNG\\Meteors\\meteorBrown_med2.png";
@@ -47,10 +47,10 @@ public class Asteroid extends GameObject {
                 imageUrl = "assets\\PNG\\Meteors\\meteorGrey_big2.png";
                 break;
             case 6:
-                imageUrl = "assets\\PNG\\Meteors\\meteorBrown_big1.png";
+                imageUrl = "assets\\PNG\\Meteors\\meteorBrown_big3.png";
                 break;
             case 7:
-                imageUrl = "assets\\PNG\\Meteors\\meteorBrown_big2.png";
+                imageUrl = "assets\\PNG\\Meteors\\meteorBrown_big4.png";
                 break;
 
             default:

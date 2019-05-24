@@ -104,14 +104,6 @@ public class Player extends GameObject {
         return shieldImage.getImage();
     }
 
-    public Integer getScore(){
-        return score;
-    }
-
-    public void addScore(Integer value){
-        score += value;
-    }
-
     private void setShieldImage() {
         String imageUrl = "assets\\PNG\\Effects\\shield1.png";
         shieldImage = new ImageIcon(imageUrl);
@@ -119,5 +111,13 @@ public class Player extends GameObject {
 
     public Rectangle getShieldBounds() {
         return new Rectangle(x, y, shieldImage.getIconWidth(), shieldImage.getIconHeight());
+    }
+
+    public Integer getScore(){
+        return score;
+    }
+
+    public void addScore(Integer value){
+        score += value;
     }
 }

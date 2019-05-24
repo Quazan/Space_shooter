@@ -135,6 +135,7 @@ public class ControllerTest {
     public void afterFiringShotIsFired() {
         controller.fire();
         final int missileCount = 1;
+
         assertEquals(missileCount, player.getMissiles().size());
     }
 
@@ -142,6 +143,7 @@ public class ControllerTest {
     public void afterCreatingAsteroidIsCreated() {
         controller.randomAsteroid();
         final int asteroidCount = 1;
+
         assertEquals(asteroidCount, board.getAsteroids().size());
     }
 
@@ -149,6 +151,7 @@ public class ControllerTest {
     public void afterCreatingEnemyIsCreated() {
         controller.randomEnemy();
         final int enemyCount = 1;
+
         assertEquals(enemyCount, board.getEnemies().size());
     }
 
@@ -156,12 +159,14 @@ public class ControllerTest {
     public void afterCreatingBonusIsCreated() {
         controller.randomBonus(0, 0);
         final int bonusCount = 1;
+
         assertEquals(bonusCount, board.getBonuses().size());
     }
 
     @Test
     public void afterFiringReloadIsOn() {
         controller.fire();
+
         assertTrue(player.isReloading());
     }
 
@@ -169,6 +174,7 @@ public class ControllerTest {
     public void afterEnemyShotsIsMade() {
         controller.enemyShot(0, 0);
         final int enemyShotsCount = 1;
+
         assertEquals(enemyShotsCount, board.getEnemyMissiles().size());
     }
 
@@ -178,6 +184,7 @@ public class ControllerTest {
         final int originalY = asteroid.y;
         controller.updateAsteroid(asteroid);
         int delta = asteroid.y - originalY;
+
         assertEquals(Controller.ASTEROID_MOVE_DELTA, delta);
     }
 
@@ -187,6 +194,7 @@ public class ControllerTest {
         final int originalY = enemy.y;
         controller.updateEnemy(enemy);
         int delta = enemy.y - originalY;
+
         assertEquals(Controller.ENEMY_MOVE_DELTA, delta);
     }
 
@@ -196,6 +204,7 @@ public class ControllerTest {
         final int originalY = missile.y;
         controller.updateMissile(missile);
         int delta = missile.y - originalY;
+
         assertEquals(-Controller.PLAYER_MISSILE_MOVE_DELTA, delta);
     }
 
@@ -205,6 +214,7 @@ public class ControllerTest {
         final int originalY = enemyMissile.y;
         controller.updateEnemyMissile(enemyMissile);
         int delta = enemyMissile.y - originalY;
+
         assertEquals(Controller.ENEMY_MISSILE_MOVE_DELTA, delta);
     }
 
@@ -214,6 +224,7 @@ public class ControllerTest {
         final int originalY = bonus.y;
         controller.updateBonus(bonus);
         int delta = bonus.y - originalY;
+
         assertEquals(Controller.BONUS_MOVE_DELTA, delta);
     }
 
